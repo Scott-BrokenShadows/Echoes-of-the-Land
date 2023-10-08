@@ -17,6 +17,7 @@ public class QuestEditor : Editor
         // Display the default Inspector fields
         EditorGUILayout.PropertyField(serializedObject.FindProperty("questName"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("questDescription"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("evergreen"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("rank"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("destination"));
 

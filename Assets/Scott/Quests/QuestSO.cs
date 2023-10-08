@@ -18,6 +18,7 @@ public class QuestSO :ScriptableObject
     public string questName;
     [TextArea]
     public string questDescription;
+    public bool evergreen;
     public RankSO rank;
     public Destination destination;
     public List<SkillsSO> skillsUsed = new List<SkillsSO>();
@@ -37,9 +38,21 @@ public class QuestSO :ScriptableObject
             }
         }
 
+        float totalTimeMultiplier = 0f;
+
+        foreach (SkillsSO skill in skillsUsed)
+        {
+            if (rank != null && skill != null)
+            {
+                totalTimeMultiplier += skill.timeMultiplier;
+            }
+        }
+
+        int destinationValue = (int)destination;
+
         if (rank != null)
         {
-            expGained = Mathf.RoundToInt(rank.baseExp * totalExpMultiplier);
+            expGained = Mathf.RoundToInt(rank.baseExp * totalExpMultiplier * totalTimeMultiplier * (destinationValue * 0.5f));
         }
         else
         {
@@ -60,9 +73,21 @@ public class QuestSO :ScriptableObject
             }
         }
 
+        float totalTimeMultiplier = 0f;
+
+        foreach (SkillsSO skill in skillsUsed)
+        {
+            if (rank != null && skill != null)
+            {
+                totalTimeMultiplier += skill.timeMultiplier;
+            }
+        }
+
+        int destinationValue = (int)destination;
+
         if (rank != null)
         {
-            goldGiven = Mathf.RoundToInt(rank.baseGold * totalGoldMultiplier);
+            goldGiven = Mathf.RoundToInt(rank.baseGold * totalGoldMultiplier * totalTimeMultiplier * (destinationValue * 0.5f));
         }
         else
         {
