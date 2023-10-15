@@ -123,6 +123,87 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &866116052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 866116055}
+  - component: {fileID: 866116054}
+  - component: {fileID: 866116053}
+  m_Layer: 0
+  m_Name: CombatAdventurer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &866116053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866116052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad7d38269b9b3d4e80ad7a8c3249673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &866116054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866116052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67e4bb90071647b4b8bfa28ef95b1fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  advenStates: 0
+  charName: 
+  charClass: 0
+  charLevel: 1
+  currentXP: 0
+  nextLevelXP: 0
+  healthStat: 0
+  combatStat: 0
+  exploreStat: 0
+  huntStat: 0
+  gatherStat: 0
+  negoStat: 0
+  trust: 0
+  currentQuest: {fileID: 0}
+  questTime: 0
+  questExp: 0
+  questGold: 0
+  isAvailableImage: {fileID: 0}
+  isInjuredImage: {fileID: 0}
+  baseCombatStat: 2
+  baseExploreStat: 0.61
+  baseHuntStat: 1.47
+  baseGatherStat: 0.89
+  baseNegoStat: 1.02
+--- !u!4 &866116055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866116052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1170939829
 GameObject:
   m_ObjectHideFlags: 0

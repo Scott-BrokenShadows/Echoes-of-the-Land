@@ -22,9 +22,9 @@ public class QuestSO :ScriptableObject
     public RankSO rank;
     public Destination destination;
     public List<SkillsSO> skillsUsed = new List<SkillsSO>();
-    [SerializeField] private int expGained;
-    [SerializeField] private int goldGiven;
-    [SerializeField] private int timeToComplete;
+    public int expGained;
+    public int goldGiven;
+    public int timeToComplete;
 
     private void CalculateEXP()
     {
