@@ -125,7 +125,7 @@ public class CharBase : MonoBehaviour
 
     private void IsInjured()
     {
-
+        
     }
 
     private void IsBackFromQuest()
