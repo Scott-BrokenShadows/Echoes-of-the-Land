@@ -11,4 +11,5 @@ public class RankSO : ScriptableObject
     public float baseExp;
     public float baseGold;
     public float baseTime;
+    public float diffcultyModifier;
 }

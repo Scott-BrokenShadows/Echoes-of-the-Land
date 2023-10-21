@@ -17,3 +17,4 @@ MonoBehaviour:
   baseExp: 300
   baseGold: 20
   baseTime: 9
+  diffcultyModifier: 1

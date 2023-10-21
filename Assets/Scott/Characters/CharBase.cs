@@ -16,6 +16,7 @@ public class CharBase : MonoBehaviour
     public int nextLevelXP;
     [Range(1, 20)]
     public int healthStat;
+    public int currentHealth;
     [Range(1, 100)]
     public int combatStat;
     [Range(1, 100)]
@@ -31,8 +32,8 @@ public class CharBase : MonoBehaviour
     [Space]
     public QuestSO currentQuest;
     public int questTime;
-    [SerializeField] private int questExp;
-    [SerializeField] private int questGold;
+    [SerializeField] public int questExp;
+    [SerializeField] public int questGold;
     public bool questCalculation;
     [Space]
     public Image isAvailableImage;
@@ -69,9 +70,10 @@ public class CharBase : MonoBehaviour
         }
 
         UpdateStats();
+        currentHealth = healthStat;
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -100,7 +102,7 @@ public class CharBase : MonoBehaviour
         }
     }
 
-    
+
 
     private void IsOnQuest()
     {
@@ -110,11 +112,16 @@ public class CharBase : MonoBehaviour
             questGold = currentQuest.goldGiven;
             questExp = currentQuest.expGained;
             SkillRolls();
+            questCalculation = true;
         }
-       
+
+        if (questCalculation == true && questTime <= 0)
+        {
+            advenStates = AdvenStates.IsBackFromQuest;
+        }
     }
 
-    
+
 
     private void IsInjured()
     {
@@ -154,18 +161,187 @@ public class CharBase : MonoBehaviour
 
     private void SkillRolls()
     {
-        float totalTimeMultiplier = 0f;
-
-        foreach (SkillsSO skill in currentQuest.skillsUsed)
+        if (currentQuest.rank != null)
         {
-            if (currentQuest.rank != null && skill != null)
+            foreach (SkillsSO skill in currentQuest.skillsUsed)
             {
-                totalTimeMultiplier += skill.timeMultiplier;
+                if (skill.skillType == SkillType.Combat)
+                {
+                    CombatRoll();
+                }
+                if (skill.skillType == SkillType.Gathering)
+                {
+                    GatherRoll();
+                }
+                if (skill.skillType == SkillType.Hunting)
+                {
+                    HuntRoll();
+                }
+                if (skill.skillType == SkillType.Exploration)
+                {
+                    ExploreRoll();
+                }
+                if (skill.skillType == SkillType.Negotiation)
+                {
+                    NegoRoll();
+                }
             }
         }
+    }
 
-        float rankValue = 3 / totalTimeMultiplier;
+    private void NegoRoll()
+    {
+        int diceRoll = Mathf.RoundToInt(UnityEngine.Random.Range(1f, 50f));
+        int totalRoll = Mathf.RoundToInt(diceRoll * currentQuest.rank.diffcultyModifier) + negoStat;
+        if (totalRoll <= 15)
+        {
+            questExp = Mathf.RoundToInt(questExp * 0.85f);
+        }
+        if (totalRoll >= 16 && totalRoll <= 30)
+        {
+            questExp = Mathf.RoundToInt(questExp * 0.90f);
+        }
+        if (totalRoll >= 31 && totalRoll <= 45)
+        {
+            questExp = Mathf.RoundToInt(questExp * 0.95f);
+        }
+        if (totalRoll >= 61 && totalRoll <= 75)
+        {
+            questExp = Mathf.RoundToInt(questExp * 1.05f);
+        }
+        if (totalRoll >= 76 && totalRoll <= 85)
+        {
+            questExp = Mathf.RoundToInt(questExp * 1.10f);
+        }
+        if (totalRoll >= 86)
+        {
+            questExp = Mathf.RoundToInt(questExp * 1.15f);
+        }
+    }
 
+    private void ExploreRoll()
+    {
+        int diceRoll = Mathf.RoundToInt(UnityEngine.Random.Range(1f, 50f));
+        int totalRoll = Mathf.RoundToInt(diceRoll * currentQuest.rank.diffcultyModifier) + exploreStat;
+        if (totalRoll <= 15)
+        {
+            questTime = Mathf.RoundToInt(questTime * 1.35f);
+        }
+        if (totalRoll >= 16 && totalRoll <= 30)
+        {
+            questTime = Mathf.RoundToInt(questTime * 1.25f);
+        }
+        if (totalRoll >= 31 && totalRoll <= 45)
+        {
+            questTime = Mathf.RoundToInt(questTime * 1.15f);
+        }
+        if (totalRoll >= 61 && totalRoll <= 75)
+        {
+            questTime = Mathf.RoundToInt(questTime * 0.85f);
+        }
+        if (totalRoll >= 76 && totalRoll <= 85)
+        {
+            questTime = Mathf.RoundToInt(questTime * 0.75f);
+        }
+        if (totalRoll >= 86)
+        {
+            questTime = Mathf.RoundToInt(questTime * 0.65f);
+        }
+    }
 
+    private void HuntRoll()
+    {
+        int diceRoll = Mathf.RoundToInt(UnityEngine.Random.Range(1f, 50f));
+        int totalRoll = Mathf.RoundToInt(diceRoll * currentQuest.rank.diffcultyModifier) + huntStat;
+        if (totalRoll <= 15)
+        {
+            questTime = Mathf.RoundToInt(questTime * 1.22f);
+            currentHealth -= 5;
+        }
+        if (totalRoll >= 16 && totalRoll <= 30)
+        {
+            questTime = Mathf.RoundToInt(questTime * 1.13f);
+            currentHealth -= 3;
+        }
+        if (totalRoll >= 31 && totalRoll <= 45)
+        {
+            questTime = Mathf.RoundToInt(questTime * 1.08f);
+            currentHealth -= 1;
+        }
+        if (totalRoll >= 61 && totalRoll <= 75)
+        {
+            questTime = Mathf.RoundToInt(questTime * 0.92f);
+            //give item 1 x distance;
+        }
+        if (totalRoll >= 76 && totalRoll <= 85)
+        {
+            questTime = Mathf.RoundToInt(questTime * 0.87f);
+            //give item 2 x distance;
+        }
+        if (totalRoll >= 86)
+        {
+            questTime = Mathf.RoundToInt(questTime * 0.78f);
+            //give item 3 x distance;
+        }
+    }
+
+    private void GatherRoll()
+    {
+        int diceRoll = Mathf.RoundToInt(UnityEngine.Random.Range(1f, 50f));
+        int totalRoll = Mathf.RoundToInt(diceRoll * currentQuest.rank.diffcultyModifier) + gatherStat;
+        if (totalRoll <= 15)
+        {
+            questTime = Mathf.RoundToInt(questTime * 1.25f);
+        }
+        if (totalRoll >= 16 && totalRoll <= 30)
+        {
+            questTime = Mathf.RoundToInt(questTime * 1.15f);
+        }
+        if (totalRoll >= 31 && totalRoll <= 45)
+        {
+            questTime = Mathf.RoundToInt(questTime * 1.10f);
+        }
+        if (totalRoll >= 61 && totalRoll <= 75)
+        {
+            //give item 1 x distance;
+        }
+        if (totalRoll >= 76 && totalRoll <= 85)
+        {
+            //give item 2 x distance;
+        }
+        if (totalRoll >= 86)
+        {
+            //give item 3 x distance;
+        }
+    }
+
+    private void CombatRoll()
+    {
+        int diceRoll = Mathf.RoundToInt(UnityEngine.Random.Range(1f, 50f));
+        int totalRoll = Mathf.RoundToInt(diceRoll * currentQuest.rank.diffcultyModifier) + combatStat;
+        if (totalRoll <= 15)
+        {
+            currentHealth -= 9;
+        }
+        if (totalRoll >= 16 && totalRoll <= 30)
+        {
+            currentHealth -= 5;
+        }
+        if (totalRoll >= 31 && totalRoll <= 45)
+        {
+            currentHealth -= 2;
+        }
+        if (totalRoll >= 61 && totalRoll <= 75)
+        {
+            questExp = Mathf.RoundToInt(questExp * 1.01f);
+        }
+        if (totalRoll >= 76 && totalRoll <= 85)
+        {
+            questExp = Mathf.RoundToInt(questExp * 1.05f);
+        }
+        if (totalRoll >= 86)
+        {
+            questExp = Mathf.RoundToInt(questExp * 1.15f);
+        }
     }
 }

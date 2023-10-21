@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad117c17879816847aadeb6c511b3100, type: 3}
   m_Name: Negotiation
   m_EditorClassIdentifier: 
-  skillName: Negotiation
+  skillType: 4
   expMultiplier: 1
   goldMultiplier: 1
   timeMultiplier: 0.6

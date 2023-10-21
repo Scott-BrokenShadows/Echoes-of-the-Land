@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad117c17879816847aadeb6c511b3100, type: 3}
   m_Name: Exploration
   m_EditorClassIdentifier: 
-  skillName: Exploration
+  skillType: 1
   expMultiplier: 0.8
   goldMultiplier: 0.5
   timeMultiplier: 1
