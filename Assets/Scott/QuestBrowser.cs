@@ -9,6 +9,8 @@ public class QuestBrowser : MonoBehaviour
     public GameObject buttonParentEvergreen;
     public GameObject buttonParentMain;
     public QuestDetails questDetails;
+
+    public List<CharBase> characters = new List<CharBase>();
     
     public QuestList questList;
 
@@ -39,10 +41,26 @@ public class QuestBrowser : MonoBehaviour
             newButton.GetComponent<Button>().onClick.AddListener(() => SetCurrentQuest(quest));
 
         }
+
+        CharBase[] charBases = FindObjectsOfType<CharBase>();
+
+        foreach (CharBase charBase in charBases)
+        {
+            if (charBase.advenStates == AdvenStates.IsAvailable)
+            {
+                characters.Add(charBase);
+            }
+        }
+    }
+
+    private void OnDisable()
+    {
+        characters.Clear();
     }
 
     void SetCurrentQuest(QuestSO quest)
     {
         questDetails.selectedQuest = quest;
+        
     }
 }

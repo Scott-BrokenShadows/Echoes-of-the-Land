@@ -125,7 +125,10 @@ public class CharBase : MonoBehaviour
 
     private void IsInjured()
     {
-        
+        if (currentHealth > 0)
+        {
+            advenStates = AdvenStates.IsAvailable;
+        }
     }
 
     private void IsBackFromQuest()
