@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class QuestBrowser : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class QuestBrowser : MonoBehaviour
     public GameObject buttonParentEvergreen;
     public GameObject buttonParentMain;
     public QuestDetails questDetails;
+    public DropDownAvailableChars dropDown;
 
     public List<CharBase> characters = new List<CharBase>();
     
@@ -16,6 +18,16 @@ public class QuestBrowser : MonoBehaviour
 
     private void OnEnable()
     {
+        CharBase[] charBases = FindObjectsOfType<CharBase>();
+
+        foreach (CharBase charBase in charBases)
+        {
+            if (charBase.advenStates == AdvenStates.IsAvailable)
+            {
+                characters.Add(charBase);
+            }
+        }
+
         foreach (Transform child in buttonParentEvergreen.transform)
         {
             Destroy(child.gameObject);
@@ -42,15 +54,7 @@ public class QuestBrowser : MonoBehaviour
 
         }
 
-        CharBase[] charBases = FindObjectsOfType<CharBase>();
-
-        foreach (CharBase charBase in charBases)
-        {
-            if (charBase.advenStates == AdvenStates.IsAvailable)
-            {
-                characters.Add(charBase);
-            }
-        }
+        dropDown.PopulateDropdown();
     }
 
     private void OnDisable()

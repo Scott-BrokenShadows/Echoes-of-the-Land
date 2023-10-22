@@ -1919,6 +1919,7 @@ MonoBehaviour:
   buttonParentEvergreen: {fileID: 1403291212}
   buttonParentMain: {fileID: 1109643096}
   questDetails: {fileID: 366614356}
+  dropDown: {fileID: 2084717430}
   characters: []
   questList: {fileID: 2048116947}
 --- !u!1 &390766026
@@ -4197,7 +4198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0022885692, y: 0}
+  m_AnchoredPosition: {x: 0.0015764595, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1109643098
@@ -4975,7 +4976,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0022406369, y: 0}
+  m_AnchoredPosition: {x: 0.0015347456, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1403291214

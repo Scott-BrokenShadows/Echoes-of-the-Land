@@ -10,7 +10,7 @@ public class DropDownAvailableChars : MonoBehaviour
     public TMP_Dropdown dropDown;
     public SendOnQuestButton sendOnQuestButton;
 
-    private void OnEnable()
+    public void PopulateDropdown()
     {
         List<string> characterNames = new List<string>();
 
@@ -22,10 +22,18 @@ public class DropDownAvailableChars : MonoBehaviour
         dropDown.ClearOptions();
         dropDown.AddOptions(characterNames);
 
-
-        string characterName = dropDown.options[0].text;
-        CharBase selectedCharacter = GetCharacterByName(characterName);
-        sendOnQuestButton.selectedCharacter = selectedCharacter;
+        if (characterNames.Count > 0)
+        {
+            string characterName = characterNames[0]; // Access the first item in the list.
+            CharBase selectedCharacter = GetCharacterByName(characterName);
+            sendOnQuestButton.selectedCharacter = selectedCharacter;
+        }
+        else
+        {
+            // Handle the case when there are no adventurers available.
+            dropDown.AddOptions(new List<string> { "No One Available" });
+            sendOnQuestButton.selectedCharacter = null; // Set to None or any desired behavior.
+        }
 
     }
 
