@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class CameraSwitcher : MonoBehaviour
 {
     public Camera[] cameras; // An array of cameras to switch between.
+    public Canvas[] canvases; //An array of canvases to change the order in layer.
     public Canvas loadingScreenCanvas; // Reference to the loading screen UI canvas.
     public RawImage fadeImage; // Reference to an image used for fading in/out.
     public float transitionDuration = 1.0f; // Duration of the camera transition.
     public float fadeDuration = 0.5f; // Duration of the fade-in/fade-out effect.
 
     private int currentCameraIndex = 0; // Index of the currently active camera.
+    private int currentCanvasIndex = 0; //Index of the currently active canvas.
 
     private void Start()
     {
@@ -19,6 +21,11 @@ public class CameraSwitcher : MonoBehaviour
         for (int i = 1; i < cameras.Length; i++)
         {
             cameras[i].gameObject.SetActive(false);
+        }
+
+        for (int i = 1; i < canvases.Length; i++)
+        {
+            canvases[i].sortingOrder = 0;
         }
 
         // Initialize the fade image to fully transparent.
@@ -33,6 +40,16 @@ public class CameraSwitcher : MonoBehaviour
         if (cameraIndex >= 0 && cameraIndex < cameras.Length && cameraIndex != currentCameraIndex)
         {
             StartCoroutine(TransitionWithLoading(cameraIndex));
+        }
+    }
+
+    public void SwitchCanvasOrder(int canvasIndex)
+    {
+        if (canvasIndex >= 0 && canvasIndex < cameras.Length && canvasIndex != currentCanvasIndex)
+        {
+            canvases[currentCanvasIndex].sortingOrder = 0;
+            canvases[canvasIndex].sortingOrder = 10;
+            currentCanvasIndex = canvasIndex;
         }
     }
 

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04720d05725c255428a8e7471a6bc1dc, type: 3}
-  m_Name: C
+  m_Name: D
   m_EditorClassIdentifier: 
-  rankLevel: C
-  totalSkills: 5
-  baseExp: 300
-  baseGold: 20
-  baseTime: 9
-  diffcultyModifier: 1
+  rankLevel: D
+  totalSkills: 4
+  baseExp: 200
+  baseGold: 15
+  baseTime: 5
+  diffcultyModifier: 1.22
