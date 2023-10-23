@@ -50,6 +50,16 @@ public class Point
 		return new Point((int)v.x, (int)v.y);
 	}
 
+	public static Point mult(Point p, int m)
+    {
+		return new Point(p.x * m, p.y * m);
+    }
+
+	public static Point add(Point p, Point o)
+    {
+		return new Point(p.x + o.x, p.y + o.y);
+    }
+
 	public static Point clone(Point p)
 	{
 		return new Point(p.x, p.y);
