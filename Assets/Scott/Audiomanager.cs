@@ -11,7 +11,8 @@ public class Audiomanager : MonoBehaviour
     public AudioSource[] musicSources;
 
     public float fadeDuration;
-    private int currentMusicIndex = 0;
+    public int currentMusicIndex = 0;
+    
     
 
     private void Start()

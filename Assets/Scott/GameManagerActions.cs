@@ -29,4 +29,10 @@ public class GameManagerActions : MonoBehaviour
             questPanel.SetActive(false);
         }
     }
+
+    public void ExitGame()
+    {
+        Debug.Log("Quit Button Pressed");
+        Application.Quit();
+    }
 }

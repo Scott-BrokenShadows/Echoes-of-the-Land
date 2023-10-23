@@ -14,6 +14,11 @@ public class CameraSwitcher : MonoBehaviour
 
     private int currentCameraIndex = 0; // Index of the currently active camera.
     private int currentCanvasIndex = 0; //Index of the currently active canvas.
+    private int lastCameraIndex = 0; //Index for changing when exiting menu
+
+    public Audiomanager audiomanager;
+    public int lastMusicIndex;
+    public int menuMusicIndex;
 
     private void Start()
     {
@@ -40,6 +45,38 @@ public class CameraSwitcher : MonoBehaviour
         if (cameraIndex >= 0 && cameraIndex < cameras.Length && cameraIndex != currentCameraIndex)
         {
             StartCoroutine(TransitionWithLoading(cameraIndex));
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (currentCameraIndex != 0)
+            {
+                SwitchToPrevious();
+            }
+        }
+    }
+
+    public void SwitchToPrevious()
+    {
+        if (currentCameraIndex != 5)
+        {
+            lastCameraIndex = currentCameraIndex;
+            lastMusicIndex = audiomanager.currentMusicIndex;
+            audiomanager.CrossfadeMusic(menuMusicIndex);
+            canvases[currentCanvasIndex].sortingOrder = 0;
+            canvases[5].sortingOrder = 10;
+            currentCanvasIndex = 5;
+            StartCoroutine(TransitionWithLoading(5));
+        }
+        if (currentCameraIndex == 5)
+        {
+            canvases[currentCanvasIndex].sortingOrder = 0;
+            canvases[lastCameraIndex].sortingOrder = 10;
+            audiomanager.CrossfadeMusic(lastMusicIndex);
+            StartCoroutine(TransitionWithLoading(lastCameraIndex));
         }
     }
 
