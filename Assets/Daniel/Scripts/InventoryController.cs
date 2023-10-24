@@ -175,6 +175,7 @@ public class InventoryController : MonoBehaviour
     private void PickUpItem(Vector2Int tileGridPosition)
     {
         selectedItem = selectedItemGrid.PickUpItem(tileGridPosition.x, tileGridPosition.y);
+        //rectTransform.SetAsLastSibling();
 
         if (selectedItem != null)
         {
