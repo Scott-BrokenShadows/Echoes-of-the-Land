@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Grid Shape", menuName = "Inventory System/Item Data")]
-public class ItemDataSO : ScriptableObject
+//[CreateAssetMenu(fileName = "New Grid Shape", menuName = "Inventory System/Item Data")]
+public class OLDItemDataSO : ScriptableObject
 {
     public int width = 1;
     public int height = 1;
