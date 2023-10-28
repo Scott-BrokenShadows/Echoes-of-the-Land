@@ -8,6 +8,7 @@ public class CameraSwitcher : MonoBehaviour
     public Camera[] cameras; // An array of cameras to switch between.
     public Canvas[] canvases; //An array of canvases to change the order in layer.
     public Canvas loadingScreenCanvas; // Reference to the loading screen UI canvas.
+    public Canvas timerCanvas; //Referense to the canvas with the timer in the corner
     public RawImage fadeImage; // Reference to an image used for fading in/out.
     public float transitionDuration = 1.0f; // Duration of the camera transition.
     public float fadeDuration = 0.5f; // Duration of the fade-in/fade-out effect.
@@ -38,6 +39,7 @@ public class CameraSwitcher : MonoBehaviour
         transparent.a = 0.0f;
         fadeImage.color = transparent;
         loadingScreenCanvas.gameObject.SetActive(false);
+        timerCanvas.gameObject.SetActive(false);
     }
 
     public void SwitchToCamera(int cameraIndex)
@@ -55,6 +57,7 @@ public class CameraSwitcher : MonoBehaviour
             if (currentCameraIndex != 0)
             {
                 SwitchToPrevious();
+                
             }
         }
     }
@@ -90,6 +93,26 @@ public class CameraSwitcher : MonoBehaviour
         }
     }
 
+    public void TurnTimerCanvas(int camera)
+    {
+        if (camera == 0 || camera == 5)
+        {
+            if (timerCanvas.gameObject.active == true)
+            {
+                timerCanvas.gameObject.SetActive(false);
+            }
+           
+        }
+
+        if (camera > 0 && camera < 5)
+        {
+            if (timerCanvas.gameObject.active == false)
+            {
+                timerCanvas.gameObject.SetActive(true);
+            }
+        }
+    }
+
     private IEnumerator TransitionWithLoading(int cameraIndex)
     {
         // Show the loading screen.
@@ -98,8 +121,14 @@ public class CameraSwitcher : MonoBehaviour
         // Start fading in.
         StartCoroutine(FadeIn());
 
+        
+
         // Wait for the fade-in effect to complete.
         yield return new WaitForSeconds(fadeDuration);
+
+        // Check timer on or off
+        TurnTimerCanvas(cameraIndex);
+
 
         // Enable the target camera.
         cameras[cameraIndex].gameObject.SetActive(true);
@@ -122,6 +151,7 @@ public class CameraSwitcher : MonoBehaviour
         loadingScreenCanvas.gameObject.SetActive(false);
 
         currentCameraIndex = cameraIndex;
+        
     }
 
     private IEnumerator FadeIn()

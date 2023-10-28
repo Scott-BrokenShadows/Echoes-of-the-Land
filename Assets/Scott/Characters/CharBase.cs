@@ -69,6 +69,7 @@ public class CharBase : MonoBehaviour
                 break;
         }
 
+        advenStates = AdvenStates.IsAvailable;
         UpdateStats();
         currentHealth = healthStat;
     }
@@ -92,6 +93,8 @@ public class CharBase : MonoBehaviour
                 IsOnQuest();
                 break;
         }
+
+        
     }
 
     private void LateUpdate()
