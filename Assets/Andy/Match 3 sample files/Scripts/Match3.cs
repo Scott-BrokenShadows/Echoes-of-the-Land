@@ -50,7 +50,6 @@ public class Match3 : MonoBehaviour
     void VerifyBoard()
     {
         List<int> remove;
-        board = new Node[width, height];
         for(int x = 0; x < width; x++)
         {
             for(int y = 0; y < height; y++)
@@ -80,8 +79,10 @@ public class Match3 : MonoBehaviour
                 int val = board[x, y].value;
                 if(val <= 0) continue;
                 GameObject p = Instantiate(nodePiece, gameBoard);
+                NodePiece node = p.GetComponent<NodePiece>();
                 RectTransform rect = p.GetComponent<RectTransform>();
                 rect.anchoredPosition = new Vector2(32 + (64 * x), -32 - (64 * y));
+                node.Initialize(val, new Point(x, y), pieces[val - 1]);
             }
         }
     }
