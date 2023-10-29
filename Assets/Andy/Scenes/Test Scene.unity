@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 63816753}
   - component: {fileID: 63816754}
+  - component: {fileID: 63816755}
   m_Layer: 0
   m_Name: Match3
   m_TagString: Untagged
@@ -173,12 +174,12 @@ MonoBehaviour:
     - row: 000000000000000000
     - row: 000000000000000000
     - row: 000000000000000000
-    - row: 000001000000000000
-    - row: 000001000000000000
-    - row: 000001000000000000
-    - row: 000001000000000000
-    - row: 000001000000000000
-    - row: 000001000000000000
+    - row: 000000000000000000
+    - row: 000000000000000000
+    - row: 000000000000000000
+    - row: 000000000000000000
+    - row: 000000000000000000
+    - row: 000000000000000000
     - row: 000000000000000000
     - row: 000000000000000000
     - row: 000000000000000000
@@ -192,6 +193,18 @@ MonoBehaviour:
   - {fileID: 5528609633622603068, guid: 2c97df9695607b04c92ec362851a0890, type: 3}
   gameBoard: {fileID: 915326207}
   nodePiece: {fileID: 6697376875136179239, guid: 7c33c6797757deb409a14ee15ffb7808, type: 3}
+--- !u!114 &63816755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63816752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134a4ac6b222cb64ab4753b730303beb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &915326206
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +486,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0.475
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -491,7 +504,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
