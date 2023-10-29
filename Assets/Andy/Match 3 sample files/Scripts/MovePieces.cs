@@ -6,6 +6,7 @@ public class MovePieces : MonoBehaviour
 {
     public static MovePieces instance;
     Match3 game;
+    public TurnChecker turnChecker;
 
     NodePiece moving;
     Point newIndex;
@@ -75,6 +76,7 @@ public class MovePieces : MonoBehaviour
         if (!newIndex.Equals(moving.index))
         {
             game.FlipPieces(moving.index, newIndex, true);
+            turnChecker.TurnOver();
         }
         else
         {

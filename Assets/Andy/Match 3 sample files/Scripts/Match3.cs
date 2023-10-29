@@ -5,6 +5,7 @@ using UnityEngine;
 public class Match3 : MonoBehaviour
 {
     public ArrayLayout boardLayout;
+    public TurnChecker turnChecker;
 
     [Header("UI elements")]
     public Sprite[] pieces;
@@ -87,7 +88,9 @@ public class Match3 : MonoBehaviour
 
             flipped.Remove(flip); //removes flipped from list
             update.Remove(piece);
+            
         }
+        
     }
 
     void ApplyGravityToBoard()
