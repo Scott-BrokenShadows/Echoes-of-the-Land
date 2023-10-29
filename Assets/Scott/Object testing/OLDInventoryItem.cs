@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryItem : MonoBehaviour
+public class OLDInventoryItem : MonoBehaviour
 {
     public GridShapeSO gridShape; // Reference to the GridShapeSO for defining the shape
 
