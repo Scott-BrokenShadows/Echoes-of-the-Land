@@ -9,16 +9,21 @@ public class Match3 : MonoBehaviour
     [Header("UI elements")]
     public Sprite[] pieces;
     public RectTransform gameBoard;
+    public RectTransform killedBoard;
 
     [Header("Prefabs")]
     public GameObject nodePiece;
+    public GameObject killedPiece;
 
     int width = 9;
     int height = 14;
+    int[] fills;
     Node[,] board;
 
     List<NodePiece> update;
     List<FlippedPieces> flipped;
+    List<NodePiece> dead;
+    List<KilledPieces> killed;
 
     System.Random random;
 
@@ -45,6 +50,10 @@ public class Match3 : MonoBehaviour
             NodePiece piece = finishedUpdating[i];
             FlippedPieces flip = getFlipped(piece);
             NodePiece flippedPiece = null;
+
+            int x = (int)piece.index.x;
+            fills[x] = Mathf.Clamp(fills[x] - 1, 0, width);
+
             List<Point> connected = isConnected(piece.index, true);
             bool wasFlipped = (flip != null);
             if (wasFlipped) //made update by flipping
@@ -63,14 +72,17 @@ public class Match3 : MonoBehaviour
             {
                 foreach (Point pnt in connected) //remove node pieces when connected
                 {
+                    KillPiece(pnt);
                     Node node = getNodeAtPoint(pnt);
                     NodePiece nodePiece = node.getPiece();
                     if(nodePiece != null)
                     {
                         nodePiece.gameObject.SetActive(false);
+                        dead.Add(nodePiece);
                     }
                     node.SetPiece(null);
                 }
+                ApplyGravityToBoard();
             }
 
             flipped.Remove(flip); //removes flipped from list
@@ -78,7 +90,70 @@ public class Match3 : MonoBehaviour
         }
     }
 
-    
+    void ApplyGravityToBoard()
+    {
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = (height - 1); y >= 0; y--)
+            {
+                Point p = new Point(x, y);
+                Node node = getNodeAtPoint(p);
+                int val = getValueAtPoint(p);
+                if (val != 0) continue; //if not hole do nothing
+                for (int ny = (y-1); ny >= -1; ny--)
+                {
+                    Point next = new Point(x, ny);
+                    int nextVal = getValueAtPoint(next);
+                    if (nextVal == 0) continue; //skips next checks if is empty
+                    if (nextVal != -1) //if we did not hit a boundary in the array
+                    {
+                        Node gotNode = getNodeAtPoint(next);
+                        NodePiece piece = gotNode.getPiece();
+
+                        //set hole
+                        node.SetPiece(piece);
+                        update.Add(piece);
+
+                        //replace hole
+                        gotNode.SetPiece(null);
+                    }
+                    else //hit end
+                    {
+                        //fill in hole
+                        int newVal = fillPiece();
+                        NodePiece piece;
+                        Point fallPnt = new Point(x, -1);
+
+                        if (dead.Count > 0)
+                        {
+                            NodePiece revived = dead[0];
+                            revived.gameObject.SetActive(true);
+                            
+                            piece = revived;
+
+                            dead.RemoveAt(0);
+                        }
+                        else
+                        {
+                            GameObject obj = Instantiate(nodePiece, gameBoard);
+                            NodePiece n = obj.GetComponent<NodePiece>();
+                            
+                            piece = n;
+                        }
+                        piece.Initialize(newVal, p, pieces[newVal - 1]);
+                        
+                        piece.rect.anchoredPosition = getPositionFromPoint(fallPnt);
+                        Node hole = getNodeAtPoint(p);
+                        hole.SetPiece(piece);
+                        ResetPiece(piece);
+                        fills[x]++;
+                    }
+                    
+                    break;
+                }
+            }
+        }
+    }
     FlippedPieces getFlipped(NodePiece p)
     {
         FlippedPieces flip = null;
@@ -95,10 +170,13 @@ public class Match3 : MonoBehaviour
 
     void StartGame()
     {
+        fills = new int[width];
         string seed = getRandomSeed();
         random = new System.Random(seed.GetHashCode());
         update = new List<NodePiece>();
         flipped = new List<FlippedPieces>();
+        dead = new List<NodePiece>();
+        killed = new List<KilledPieces>();
         InitializeBoard();
         VerifyBoard();
         InstantiateBoard();
@@ -192,6 +270,37 @@ public class Match3 : MonoBehaviour
         }
     }
 
+    void KillPiece(Point p)
+    {
+        List<KilledPieces> available = new List<KilledPieces>();
+        for (int i = 0; i < killed.Count; i++)
+        {
+            if (!killed[i].falling)
+            {
+                available.Add(killed[i]);
+            }
+        }
+
+        KilledPieces set = null;
+        if (available.Count > 0)
+        {
+            set = available[0];
+        }
+        else
+        {
+            GameObject kill = GameObject.Instantiate(killedPiece, killedBoard);
+            KilledPieces kPiece = kill.GetComponent<KilledPieces>();
+            set = kPiece;
+            killed.Add(kPiece);
+        }
+
+        int val = getValueAtPoint(p) - 1;
+        if (set != null && val >= 0 && val < pieces.Length)
+        {
+            set.Initialize(pieces[val], getPositionFromPoint(p));
+        }
+    }
+
     List<Point> isConnected(Point p, bool main)
     {
         List<Point> connected = new List<Point>();
@@ -273,8 +382,8 @@ public class Match3 : MonoBehaviour
             }
         }
 
-        if(connected.Count > 0)
-            connected.Add(p);
+        //if(connected.Count > 0)
+        //    connected.Add(p);
 
         return connected;
     }
