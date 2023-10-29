@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ItemGrid : MonoBehaviour
 {
-    public const float tileSizeWidth = 128;    //Width of Tile texture
-    public const float tileSizeHeight = 128;   //Height of Tile texture
+    public const float tileSizeWidth = 64;    //Width of Tile texture
+    public const float tileSizeHeight = 64;   //Height of Tile texture
 
     [SerializeField] int gridSizeWidth = 5;
     [SerializeField] int gridSizeHeight = 5;
