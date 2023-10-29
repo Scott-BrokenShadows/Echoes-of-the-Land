@@ -297,7 +297,8 @@ public class Match3 : MonoBehaviour
         int val = getValueAtPoint(p) - 1;
         if (set != null && val >= 0 && val < pieces.Length)
         {
-            set.Initialize(pieces[val], getPositionFromPoint(p));
+            
+            set.Initialize(val, pieces[val], getPositionFromPoint(p)) ;
         }
     }
 

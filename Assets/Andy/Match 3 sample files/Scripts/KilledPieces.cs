@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class KilledPieces : MonoBehaviour
 {
+    public int value;
     public bool falling;
 
     float speed = 16f;
@@ -32,11 +33,11 @@ public class KilledPieces : MonoBehaviour
         }
     }
 
-    public void Initialize(Sprite piece, Vector2 start)
+    public void Initialize(int val, Sprite piece, Vector2 start)
     {
         
         falling = true;
-
+        value = val + 1;
         moveDir = Vector2.up;
         moveDir.x = Random.Range(-1.0f, 1.0f);
         moveDir *= speed / 2;
