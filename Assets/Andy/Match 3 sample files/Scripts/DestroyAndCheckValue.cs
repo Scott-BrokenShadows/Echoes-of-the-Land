@@ -25,6 +25,10 @@ public class DestroyAndCheckValue : MonoBehaviour
         {
             turnChecker.Value4();
         }
+        if (killed.value == 5)
+        {
+            turnChecker.Value5();
+        }
 
         Destroy(other.gameObject);
     }

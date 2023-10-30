@@ -12,10 +12,12 @@ public class TurnChecker : MonoBehaviour
     public int item2Value;
     public int item3Value;
     public int item4Value;
+    public int item5Value;
     [SerializeField] int check1;
     [SerializeField] int check2;
     [SerializeField] int check3;
     [SerializeField] int check4;
+    [SerializeField] int check5;
 
 
 
@@ -24,6 +26,7 @@ public class TurnChecker : MonoBehaviour
     public TextMeshProUGUI item2Text;
     public TextMeshProUGUI item3Text;
     public TextMeshProUGUI item4Text;
+    public TextMeshProUGUI item5Text;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,12 +40,15 @@ public class TurnChecker : MonoBehaviour
         check3 = 0;
         item4Value = 0;
         check4 = 0;
+        item5Value = 0;
+        check5 = 0;
 
         turnText.text = remainingTurns.ToString();
         item1Text.text = item1Value.ToString();
         item2Text.text = item2Value.ToString();
         item3Text.text = item3Value.ToString();
         item4Text.text = item4Value.ToString();
+        item5Text.text = item5Value.ToString();
     }
 
     // Update is called once per frame
@@ -77,6 +83,12 @@ public class TurnChecker : MonoBehaviour
             item4Text.text = item4Value.ToString();
             check4 = item4Value;
         }
+
+        if (item5Value != check5)
+        {
+            item5Text.text = item5Value.ToString();
+            check5 = item5Value;
+        }
     }
 
     public void TurnOver()
@@ -102,5 +114,10 @@ public class TurnChecker : MonoBehaviour
     public void Value4()
     {
         item4Value++;
+    }
+
+    public void Value5()
+    {
+        item5Value++;
     }
 }
