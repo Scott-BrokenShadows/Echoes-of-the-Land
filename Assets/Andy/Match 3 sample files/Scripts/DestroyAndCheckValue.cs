@@ -12,22 +12,27 @@ public class DestroyAndCheckValue : MonoBehaviour
         if (killed.value == 1)
         {
             turnChecker.Value1();
+            GetComponent<AudioSource>().Play();
         }
         if (killed.value == 2)
         {
             turnChecker.Value2();
+            GetComponent<AudioSource>().Play();
         }
         if (killed.value == 3)
         {
             turnChecker.Value3();
+            GetComponent<AudioSource>().Play();
         }
         if (killed.value == 4)
         {
             turnChecker.Value4();
+            GetComponent<AudioSource>().Play();
         }
         if (killed.value == 5)
         {
             turnChecker.Value5();
+            GetComponent<AudioSource>().Play();
         }
 
         Destroy(other.gameObject);
