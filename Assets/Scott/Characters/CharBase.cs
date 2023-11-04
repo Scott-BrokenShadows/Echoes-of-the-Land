@@ -30,14 +30,21 @@ public class CharBase : MonoBehaviour
     [Range(1, 100)]
     public int trust;
     [Space]
+    public Timer timer;
     public QuestSO currentQuest;
     public int questTime;
     [SerializeField] public int questExp;
     [SerializeField] public int questGold;
     public bool questCalculation;
+    public List<ItemDataSO> itemsCollected;
+    public InventoryController inventory;
+    public GuildFunds guildFunds;
     [Space]
-    public Image isAvailableImage;
-    public Image isInjuredImage;
+    public Button deBriefButton;
+    public bool debrief;
+    public Button charButton;
+    public Sprite isAvailableImage;
+    public Sprite isInjuredImage;
     [Space]
     [Range(0, 2)]
     public float baseCombatStat;
@@ -69,11 +76,16 @@ public class CharBase : MonoBehaviour
                 break;
         }
 
+        timer.OnTurnUpdate += HandleTurnUpdate;
+        deBriefButton.gameObject.SetActive(false);
+        itemsCollected = new List<ItemDataSO>();
         advenStates = AdvenStates.IsAvailable;
+        debrief = false;
         UpdateStats();
         currentHealth = healthStat;
     }
 
+    
 
     // Update is called once per frame
     void Update()
@@ -109,6 +121,12 @@ public class CharBase : MonoBehaviour
 
     private void IsOnQuest()
     {
+        if (charButton.gameObject.active == true)
+        {
+            charButton.gameObject.SetActive(false);
+        }
+
+
         if (questCalculation == false)
         {
             questTime = currentQuest.timeToComplete;
@@ -128,19 +146,40 @@ public class CharBase : MonoBehaviour
 
     private void IsInjured()
     {
+
+        if (itemsCollected.Count > 0)
+        {
+            itemsCollected.Clear();
+        }
+
         if (currentHealth > 0)
         {
+            charButton.GetComponent<Image>().sprite = isAvailableImage;
             advenStates = AdvenStates.IsAvailable;
         }
     }
 
     private void IsBackFromQuest()
     {
-
+        if (deBriefButton.gameObject.active == false && debrief == false)
+        {
+            deBriefButton.gameObject.SetActive(true);
+            debrief = true;
+        }
     }
 
     private void IsAvailable()
     {
+        if (charButton.gameObject.active == false)
+        {
+            charButton.gameObject.SetActive(true);
+        }
+
+        if (itemsCollected.Count > 0)
+        {
+            itemsCollected.Clear();
+        }
+
         if (currentQuest != null)
         {
             questCalculation = false;
@@ -252,6 +291,13 @@ public class CharBase : MonoBehaviour
         if (totalRoll >= 86)
         {
             questTime = Mathf.RoundToInt(questTime * 0.65f);
+            //give item x distance;
+            int itemCount = (int)currentQuest.destination;
+            for (int i = 0; i < itemCount; i++)
+            {
+                ItemDataSO item = inventory.items[2];
+                itemsCollected.Add(item);
+            }
         }
     }
 
@@ -274,20 +320,38 @@ public class CharBase : MonoBehaviour
             questTime = Mathf.RoundToInt(questTime * 1.08f);
             currentHealth -= 1;
         }
-        if (totalRoll >= 61 && totalRoll <= 75)
+        if (totalRoll >= 46 && totalRoll <= 75)
         {
             questTime = Mathf.RoundToInt(questTime * 0.92f);
             //give item 1 x distance;
+            int itemCount = (int)currentQuest.destination;
+            for (int i = 0; i < itemCount; i++)
+            {
+                ItemDataSO item = inventory.items[0];
+                itemsCollected.Add(item);
+            }
         }
         if (totalRoll >= 76 && totalRoll <= 85)
         {
             questTime = Mathf.RoundToInt(questTime * 0.87f);
             //give item 2 x distance;
+            int itemCount = (int)currentQuest.destination;
+            for (int i = 0; i < itemCount; i++)
+            {
+                ItemDataSO item = inventory.items[0];
+                itemsCollected.Add(item);
+            }
         }
         if (totalRoll >= 86)
         {
             questTime = Mathf.RoundToInt(questTime * 0.78f);
             //give item 3 x distance;
+            int itemCount = (int)currentQuest.destination;
+            for (int i = 0; i < itemCount; i++)
+            {
+                ItemDataSO item = inventory.items[0];
+                itemsCollected.Add(item);
+            }
         }
     }
 
@@ -307,17 +371,35 @@ public class CharBase : MonoBehaviour
         {
             questTime = Mathf.RoundToInt(questTime * 1.10f);
         }
-        if (totalRoll >= 61 && totalRoll <= 75)
+        if (totalRoll >= 46 && totalRoll <= 75)
         {
             //give item 1 x distance;
+            int itemCount = (int)currentQuest.destination;
+            for (int i = 0; i < itemCount; i++)
+            {
+                ItemDataSO item = inventory.items[1];
+                itemsCollected.Add(item);
+            }
         }
         if (totalRoll >= 76 && totalRoll <= 85)
         {
             //give item 2 x distance;
+            int itemCount = (int)currentQuest.destination;
+            for (int i = 0; i < itemCount; i++)
+            {
+                ItemDataSO item = inventory.items[1];
+                itemsCollected.Add(item);
+            }
         }
         if (totalRoll >= 86)
         {
             //give item 3 x distance;
+            int itemCount = (int)currentQuest.destination;
+            for (int i = 0; i < itemCount; i++)
+            {
+                ItemDataSO item = inventory.items[1];
+                itemsCollected.Add(item);
+            }
         }
     }
 
@@ -350,4 +432,63 @@ public class CharBase : MonoBehaviour
             questExp = Mathf.RoundToInt(questExp * 1.15f);
         }
     }
+
+    private void HandleTurnUpdate()
+    {
+        if (advenStates == AdvenStates.IsOnQuest)
+        {
+            questTime--;
+        }
+
+        if (advenStates == AdvenStates.IsInjured)
+        {
+            if (currentHealth < healthStat)
+            {
+                currentHealth++;
+            }
+        }
+
+        if (advenStates == AdvenStates.IsAvailable)
+        {
+            if (currentHealth < healthStat)
+            {
+                currentHealth++;
+            }
+        }
+    }
+
+    public void FinishQuest()
+    {
+        guildFunds.SpendGold(questGold);
+        currentXP = currentXP + questExp;
+        debrief = false;
+        FillInventory();
+
+
+        if (currentHealth <= 0)
+        {
+            advenStates = AdvenStates.IsInjured;
+            charButton.GetComponent<Image>().sprite = isInjuredImage;
+        }
+
+        if (currentHealth > 0)
+        {
+            advenStates = AdvenStates.IsAvailable;
+            charButton.GetComponent<Image>().sprite = isAvailableImage;
+        }
+
+        
+        
+    }
+
+    void FillInventory()
+    {
+        foreach (ItemDataSO item in itemsCollected)
+        {
+            inventory.InsertAdventurerItem(item);
+        }
+    }
+
+    
+
 }

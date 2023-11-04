@@ -8,12 +8,13 @@ public class CameraSwitcher : MonoBehaviour
     public Camera[] cameras; // An array of cameras to switch between.
     public Canvas[] canvases; //An array of canvases to change the order in layer.
     public Canvas loadingScreenCanvas; // Reference to the loading screen UI canvas.
-    public Canvas timerCanvas; //Referense to the canvas with the timer in the corner
+    public Canvas timerCanvas; //Reference to the canvas with the timer in the corner
+    public Canvas inventoryCanvas; //Reference to the canvas with the inventory on it
     public RawImage fadeImage; // Reference to an image used for fading in/out.
     public float transitionDuration = 1.0f; // Duration of the camera transition.
     public float fadeDuration = 0.5f; // Duration of the fade-in/fade-out effect.
 
-    private int currentCameraIndex = 0; // Index of the currently active camera.
+    public int currentCameraIndex = 0; // Index of the currently active camera.
     private int currentCanvasIndex = 0; //Index of the currently active canvas.
     private int lastCameraIndex = 0; //Index for changing when exiting menu
 
@@ -40,6 +41,7 @@ public class CameraSwitcher : MonoBehaviour
         fadeImage.color = transparent;
         loadingScreenCanvas.gameObject.SetActive(false);
         timerCanvas.gameObject.SetActive(false);
+        inventoryCanvas.gameObject.SetActive(false);
     }
 
     public void SwitchToCamera(int cameraIndex)
@@ -113,6 +115,26 @@ public class CameraSwitcher : MonoBehaviour
         }
     }
 
+    public void InventoryCanvas(int camera)
+    {
+        if (camera != 3)
+        {
+            if (inventoryCanvas.gameObject.active == true)
+            {
+                inventoryCanvas.gameObject.SetActive(false);
+            }
+
+        }
+
+        if (camera == 3)
+        {
+            if (inventoryCanvas.gameObject.active == false)
+            {
+                inventoryCanvas.gameObject.SetActive(true);
+            }
+        }
+    }
+
     private IEnumerator TransitionWithLoading(int cameraIndex)
     {
         // Show the loading screen.
@@ -128,7 +150,7 @@ public class CameraSwitcher : MonoBehaviour
 
         // Check timer on or off
         TurnTimerCanvas(cameraIndex);
-
+        InventoryCanvas(cameraIndex);
 
         // Enable the target camera.
         cameras[cameraIndex].gameObject.SetActive(true);

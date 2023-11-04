@@ -22,7 +22,7 @@ public class InventoryController : MonoBehaviour
     InventoryItem overlapItem;
     RectTransform rectTransform;
 
-    [SerializeField] List<ItemDataSO> items;
+    public List<ItemDataSO> items;
     [SerializeField] GameObject itemPrefab;
     [SerializeField] Transform canvasTransform;
 
@@ -38,18 +38,18 @@ public class InventoryController : MonoBehaviour
     {
         ItemIconDrag();
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if(selectedItem == null)
-            {
-                CreateRandomitem();
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    if(selectedItem == null)
+        //    {
+        //        CreateRandomitem();
+        //    }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            InsertRandomItem();
-        }
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //{
+        //    InsertRandomItem();
+        //}
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -77,11 +77,11 @@ public class InventoryController : MonoBehaviour
         selectedItem.Rotate();
     }
 
-    private void InsertRandomItem()
+    public void InsertAdventurerItem(ItemDataSO itemSO)
     {
         if (selectedItemGrid == null) { return; }
 
-        CreateRandomitem();
+        CreateItem(itemSO);
         InventoryItem itemToInsert = selectedItem;
         selectedItem = null;
         InsertItem(itemToInsert);
@@ -191,7 +191,7 @@ public class InventoryController : MonoBehaviour
         }
     }
 
-    public void CreateRandomitem()
+    public void CreateItem(ItemDataSO itemSO)
     {
         InventoryItem inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
         selectedItem = inventoryItem;
@@ -200,8 +200,8 @@ public class InventoryController : MonoBehaviour
         rectTransform.SetParent(canvasTransform);
         rectTransform.SetAsLastSibling();
 
-        int selectedItemID = UnityEngine.Random.Range(0, items.Count);
-        inventoryItem.Set(items[selectedItemID]);
+        
+        inventoryItem.Set(itemSO);
     }
 
 }

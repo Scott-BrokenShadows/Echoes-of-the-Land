@@ -37,30 +37,27 @@ public class DropDownAvailableChars : MonoBehaviour
 
     }
 
-    public void OnValueChange(int index)
+    public void CurrentSelected()
     {
-        if (index >= 0 && index < dropDown.options.Count)
-        {
+        
             // Get the selected character's name from the dropdown options.
-            string characterName = dropDown.options[index].text;
-
+            string characterName = dropDown.options[dropDown.value].text;
             // Find the character from your list based on the name.
             CharBase selectedCharacter = GetCharacterByName(characterName); // Replace with your actual method.
-
             // Send the selected character to your button script.
             sendOnQuestButton.selectedCharacter = selectedCharacter;
-        }
+        
     }
 
     public CharBase GetCharacterByName(string characterName)
     {
         CharBase[] characters = FindObjectsOfType<CharBase>();
-
         foreach (CharBase character in characters)
         {
             if (character.charName == characterName)
             {
                 return character;
+                
             }
         }
 
