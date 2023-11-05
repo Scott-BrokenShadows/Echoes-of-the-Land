@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Andy/Scenes/Match3-Rock.unity
     guid: 9c32670bd51f49248bee4d1d7710cf1e
+  - enabled: 1
+    path: Assets/Scott/Credits.unity
+    guid: 733fbc9b2ff9ecf4f83428fdf8873e91
   m_configObjects: {}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -59,7 +60,10 @@ public class Timer : MonoBehaviour
             OnTurnUpdate?.Invoke();
         }
 
-        
+        if(weeks == 4)
+        {
+            SceneManager.LoadScene("Credits");
+        }
     }
 
     public void AdvanceTime()

@@ -24,7 +24,7 @@ public class Match3 : MonoBehaviour
     List<NodePiece> update;
     List<FlippedPieces> flipped;
     List<NodePiece> dead;
-    List<KilledPieces> killed;
+    public List<KilledPieces> killed;
 
     System.Random random;
 

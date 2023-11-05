@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MainStoryQuest
   m_EditorClassIdentifier: 
   questName: The Emu War
-  questDescription: Just a random high level quest to see how it determines what
-    is going on
+  questDescription: This is just a test quest to show you how long quests could take.
+    This won't likely be finished by the time the Alpha is over.
   evergreen: 0
   rank: {fileID: 11400000, guid: 791799efa182b6c49be79ecaf5874209, type: 2}
   destination: 3
@@ -28,4 +28,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9bef0bb027ccf9a479da33914b77b96c, type: 2}
   expGained: 40095
   goldGiven: 2198
-  timeToComplete: 257
+  timeToComplete: 218

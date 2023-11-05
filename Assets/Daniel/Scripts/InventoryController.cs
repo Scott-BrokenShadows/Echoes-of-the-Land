@@ -89,20 +89,15 @@ public class InventoryController : MonoBehaviour
 
     public void InsertAdventurerItem(ItemDataSO itemSO)
     {
-        Debug.Log("item received" + itemSO);
         if (selectedItemGrid == null) 
         {
-            Debug.Log("grid is null");
             return; 
         }
 
         CreateItem(itemSO);
-        Debug.Log("item create sent");
         InventoryItem itemToInsert = selectedItem;
-        Debug.Log("item insert set");
         selectedItem = null;
         InsertItem(itemToInsert);
-        Debug.Log("item inserted");
     }
 
     private void InsertItem(InventoryItem itemToInsert)
@@ -161,7 +156,7 @@ public class InventoryController : MonoBehaviour
         }
     }
 
-    private Vector2Int GetGridPosition()
+    public Vector2Int GetGridPosition()
     {
         Vector2 position = Input.mousePosition;
 
@@ -208,6 +203,22 @@ public class InventoryController : MonoBehaviour
             rectTransform.position = Input.mousePosition;
         }
     }
+    public void InsertMatch3Item(ItemDataSO itemSO, Quality quality)
+    {
+        if (selectedItemGrid == null)
+        {
+            return;
+        }
+
+        // Create an InventoryItem and set its ItemDataSO
+        CreateItem(itemSO);
+        InventoryItem itemToInsert = selectedItem;
+        selectedItem = null;
+        itemToInsert.itemData.quality = quality; // Set the quality of the item
+
+        // Insert the item into the grid
+        InsertItem(itemToInsert);
+    }
 
     public void CreateItem(ItemDataSO itemSO)
     {
@@ -221,5 +232,7 @@ public class InventoryController : MonoBehaviour
         
         inventoryItem.Set(itemSO);
     }
+
+    
 
 }

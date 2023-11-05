@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2145e0cc1715e0c468672c2109947570, type: 3}
   m_Name: TestCombatQuest
   m_EditorClassIdentifier: 
-  questName: Test Combat Quest
-  questDescription: 
+  questName: Defeat the Drop Bears
+  questDescription: This quest is higher ranked and further away, so it takes longer
+    to complete, but the rewards are worth it.
   evergreen: 1
   rank: {fileID: 11400000, guid: 89e5df48d19f3684eabdbfd9a4a7747a, type: 2}
   destination: 2
   skillsUsed:
   - {fileID: 11400000, guid: f9dadea867f9d6d4a88abd1efd65df34, type: 2}
-  - {fileID: 11400000, guid: 48c902232026ba34199328a518a5be7e, type: 2}
+  - {fileID: 11400000, guid: 7abc3b312d7861448aa7b4d9ecf1c51c, type: 2}
   - {fileID: 11400000, guid: 9bef0bb027ccf9a479da33914b77b96c, type: 2}
   - {fileID: 11400000, guid: 9bef0bb027ccf9a479da33914b77b96c, type: 2}
   - {fileID: 11400000, guid: 269b9fd56d4ca6645bc7e2333e4a8366, type: 2}
   - {fileID: 11400000, guid: f9dadea867f9d6d4a88abd1efd65df34, type: 2}
-  expGained: 11656
-  goldGiven: 646
-  timeToComplete: 85
+  expGained: 15312
+  goldGiven: 870
+  timeToComplete: 104

@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2145e0cc1715e0c468672c2109947570, type: 3}
   m_Name: TestGatherClose
   m_EditorClassIdentifier: 
-  questName: Test Gather Close
-  questDescription: A test quest to make sure that the Gather information is showing
-    correctly.
+  questName: Gathering Nearby
+  questDescription: This quest is close by and is quick to do.
   evergreen: 1
   rank: {fileID: 11400000, guid: c77d0b68b33579f4f92e0bad1c47592b, type: 2}
   destination: 1

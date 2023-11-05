@@ -6,7 +6,7 @@ using TMPro;
 public class TurnChecker : MonoBehaviour
 {
     public int initialTurns;
-    [SerializeField] int remainingTurns;
+    public int remainingTurns;
     [SerializeField] int turnCheck;
     public int item1Value;
     public int item2Value;
