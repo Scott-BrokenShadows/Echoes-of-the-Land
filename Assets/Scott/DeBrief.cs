@@ -7,22 +7,26 @@ using TMPro;
 public class DeBrief : MonoBehaviour
 {
     public Button charDBButton;
-    public GameObject charPanel;
+    public GameObject[] charPanel;
     public CharBase thisChar;
     public TextMeshProUGUI goldText;
     public CameraSwitcher cameraSwitch;
+    public int targetPanel;
 
     // Start is called before the first frame update
     void Start()
     {
         charDBButton.gameObject.SetActive(false);
-        charPanel.gameObject.SetActive(false);
+        charPanel[targetPanel].SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (thisChar.debrief == true)
+        {
+            charDBButton.gameObject.SetActive(false);
+        }
     }
 
     private void OnEnable()
@@ -33,19 +37,12 @@ public class DeBrief : MonoBehaviour
     public void DebriefPlayer()
     {
         StartCoroutine(SetPanels());
-
-        
-    }
-
-    
-
-    public void ButtonOff()
-    {
-        charDBButton.gameObject.SetActive(false);
     }
 
     public IEnumerator SetPanels()
     {
+        
+
         if (cameraSwitch.currentCameraIndex != 1)
         {
             cameraSwitch.SwitchToCamera(1);
@@ -54,13 +51,17 @@ public class DeBrief : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
 
-        if (charPanel.gameObject.active == false)
+        foreach (GameObject panel in charPanel)
         {
-            charPanel.gameObject.SetActive(true);
+            panel.SetActive(false);
         }
 
         yield return new WaitForSeconds(0.1f);
 
-        ButtonOff();
+        if (charPanel[targetPanel].active == false)
+        {
+            charPanel[targetPanel].SetActive(true);
+        }
+
     }
 }

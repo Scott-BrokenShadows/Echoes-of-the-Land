@@ -126,6 +126,7 @@ public class CharBase : MonoBehaviour
             charButton.gameObject.SetActive(false);
         }
 
+        debrief = false;
 
         if (questCalculation == false)
         {
@@ -164,7 +165,13 @@ public class CharBase : MonoBehaviour
         if (deBriefButton.gameObject.active == false && debrief == false)
         {
             deBriefButton.gameObject.SetActive(true);
-            debrief = true;
+
+            
+        }
+
+        if (currentQuest != null)
+        {
+            currentQuest = null;
         }
     }
 
@@ -461,7 +468,7 @@ public class CharBase : MonoBehaviour
     {
         guildFunds.SpendGold(questGold);
         currentXP = currentXP + questExp;
-        debrief = false;
+        debrief = true;
         FillInventory();
 
 
