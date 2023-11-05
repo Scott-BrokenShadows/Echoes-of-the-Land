@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 { 
-    [HideInInspector]
-    private ItemGrid selectedItemGrid;
+    
+    public ItemGrid selectedItemGrid;
 
-    public ItemGrid SelectedItemGrid
-    {
-        get => selectedItemGrid;
-        set
-        {
-            selectedItemGrid = value;
-            inventoryHighlight.SetParent(value);
-        }
-    }
+    //public ItemGrid SelectedItemGrid
+    //{
+    //    get => selectedItemGrid;
+    //    set
+    //    {
+    //        selectedItemGrid = value;
+    //        inventoryHighlight.SetParent(value);
+    //    }
+    //}
 
     InventoryItem selectedItem;
     InventoryItem overlapItem;
@@ -31,9 +31,19 @@ public class InventoryController : MonoBehaviour
 
     private void Awake()
     {
-        inventoryHighlight = GetComponent<InventoryHighlight>();
+        
     }
 
+    private void Start()
+    {
+        inventoryHighlight = GetComponent<InventoryHighlight>();
+        selectedItemGrid = FindObjectOfType<ItemGrid>();
+        if (selectedItemGrid == null)
+        {
+            Debug.LogError("ItemGrid not found in the scene.");
+            // You might want to handle this case appropriately, like disabling certain functionality.
+        }
+    }
     public void Update()
     {
         ItemIconDrag();
@@ -79,12 +89,20 @@ public class InventoryController : MonoBehaviour
 
     public void InsertAdventurerItem(ItemDataSO itemSO)
     {
-        if (selectedItemGrid == null) { return; }
+        Debug.Log("item received" + itemSO);
+        if (selectedItemGrid == null) 
+        {
+            Debug.Log("grid is null");
+            return; 
+        }
 
         CreateItem(itemSO);
+        Debug.Log("item create sent");
         InventoryItem itemToInsert = selectedItem;
+        Debug.Log("item insert set");
         selectedItem = null;
         InsertItem(itemToInsert);
+        Debug.Log("item inserted");
     }
 
     private void InsertItem(InventoryItem itemToInsert)

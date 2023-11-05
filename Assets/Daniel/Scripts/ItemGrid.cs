@@ -16,14 +16,12 @@ public class ItemGrid : MonoBehaviour
     InventoryItem[,] inventoryItemSlot;
 
     RectTransform rectTransform;
-    private void Start()
+    private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         Init(gridSizeWidth, gridSizeHeight);
-
-        //InventoryItem inventoryItem = Instantiate(inventoryItemPrefab).GetComponent<InventoryItem>();
-        //PlaceItem(inventoryItem, 1, 1);
     }
+    
 
     public InventoryItem PickUpItem(int x, int y)
     {

@@ -46,6 +46,7 @@ public class DeBrief : MonoBehaviour
         if (cameraSwitch.currentCameraIndex != 1)
         {
             cameraSwitch.SwitchToCamera(1);
+            cameraSwitch.SwitchCanvasOrder(1);
             
         }
 

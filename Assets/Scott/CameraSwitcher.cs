@@ -41,7 +41,7 @@ public class CameraSwitcher : MonoBehaviour
         fadeImage.color = transparent;
         loadingScreenCanvas.gameObject.SetActive(false);
         timerCanvas.gameObject.SetActive(false);
-        inventoryCanvas.gameObject.SetActive(false);
+        inventoryCanvas.renderMode = RenderMode.WorldSpace;
     }
 
     public void SwitchToCamera(int cameraIndex)
@@ -87,10 +87,14 @@ public class CameraSwitcher : MonoBehaviour
 
     public void SwitchCanvasOrder(int canvasIndex)
     {
-        if (canvasIndex >= 0 && canvasIndex < cameras.Length && canvasIndex != currentCanvasIndex)
+        if (canvasIndex >= 0 && canvasIndex < canvases.Length)
         {
-            canvases[currentCanvasIndex].sortingOrder = 0;
-            canvases[canvasIndex].sortingOrder = 10;
+            for (int i = 0; i < canvases.Length; i++)
+            {
+                canvases[i].sortingOrder = 0; // Set all canvases to the base sorting order
+            }
+
+            canvases[canvasIndex].sortingOrder = 10; // Set the specified canvas to the desired sorting order
             currentCanvasIndex = canvasIndex;
         }
     }
@@ -119,18 +123,18 @@ public class CameraSwitcher : MonoBehaviour
     {
         if (camera != 3)
         {
-            if (inventoryCanvas.gameObject.active == true)
+            if (inventoryCanvas.renderMode != RenderMode.WorldSpace)
             {
-                inventoryCanvas.gameObject.SetActive(false);
+                inventoryCanvas.renderMode = RenderMode.WorldSpace;
             }
 
         }
 
         if (camera == 3)
         {
-            if (inventoryCanvas.gameObject.active == false)
+            if (inventoryCanvas.renderMode != RenderMode.ScreenSpaceOverlay)
             {
-                inventoryCanvas.gameObject.SetActive(true);
+                inventoryCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
             }
         }
     }
@@ -203,5 +207,7 @@ public class CameraSwitcher : MonoBehaviour
             yield return null;
         }
     }
+
+    
 }
 

@@ -22,7 +22,7 @@ public class InventoryHighlight : MonoBehaviour
     public void SetPosition(ItemGrid targetGrid, InventoryItem targetItem)
     {
         Vector2 pos = targetGrid.CalculatePositionOnGrid(targetItem, targetItem.onGridPositionX, targetItem.onGridPositionY);
-        highlighter.localPosition = pos;
+        highlighter.position = pos;
     }
 
     public void SetParent(ItemGrid targetGrid)
@@ -34,7 +34,7 @@ public class InventoryHighlight : MonoBehaviour
     public void SetPosition(ItemGrid targetGrid, InventoryItem targetItem, int posX, int posY)
     {
         Vector2 pos = targetGrid.CalculatePositionOnGrid(targetItem, posX, posY);
-        highlighter.localPosition = pos;
+        highlighter.position = pos;
     }
 
 }

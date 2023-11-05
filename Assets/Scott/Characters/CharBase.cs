@@ -126,6 +126,8 @@ public class CharBase : MonoBehaviour
             charButton.gameObject.SetActive(false);
         }
 
+        
+
         debrief = false;
 
         if (questCalculation == false)
@@ -147,12 +149,6 @@ public class CharBase : MonoBehaviour
 
     private void IsInjured()
     {
-
-        if (itemsCollected.Count > 0)
-        {
-            itemsCollected.Clear();
-        }
-
         if (currentHealth > 0)
         {
             charButton.GetComponent<Image>().sprite = isAvailableImage;
@@ -182,10 +178,7 @@ public class CharBase : MonoBehaviour
             charButton.gameObject.SetActive(true);
         }
 
-        if (itemsCollected.Count > 0)
-        {
-            itemsCollected.Clear();
-        }
+        
 
         if (currentQuest != null)
         {
@@ -469,7 +462,7 @@ public class CharBase : MonoBehaviour
         guildFunds.SpendGold(questGold);
         currentXP = currentXP + questExp;
         debrief = true;
-        FillInventory();
+        StartCoroutine(FillInventory());
 
 
         if (currentHealth <= 0)
@@ -488,11 +481,20 @@ public class CharBase : MonoBehaviour
         
     }
 
-    void FillInventory()
+    private IEnumerator FillInventory()
     {
         foreach (ItemDataSO item in itemsCollected)
         {
+            Debug.Log("char base foreach");
             inventory.InsertAdventurerItem(item);
+            Debug.Log("adven sends" + item);
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        if (itemsCollected.Count > 0)
+        {
+            itemsCollected.Clear();
         }
     }
 

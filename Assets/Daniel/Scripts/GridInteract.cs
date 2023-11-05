@@ -11,18 +11,19 @@ public class GridInteract : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnPointerEnter(PointerEventData eventData)
     {
         Debug.Log("Mouse Hovering Grid");
-        inventoryController.SelectedItemGrid = itemGrid;
+        //inventoryController.selectedItemGrid = itemGrid;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         Debug.Log("Mouse Exited Grid");
-        inventoryController.SelectedItemGrid = null;
+        //inventoryController.selectedItemGrid = null;
     }
 
-    private void Awake()
+    private void Start()
     {
         inventoryController = FindObjectOfType(typeof(InventoryController)) as InventoryController;
         itemGrid = GetComponent<ItemGrid>();
     }
+    
 }
