@@ -18,13 +18,22 @@ public class QuestDetails : MonoBehaviour
     public TextMeshProUGUI rank;
     public TextMeshProUGUI skillList;
 
+    public GameObject confirmPanel;
+    public TextMeshProUGUI confirmDays;
+
 
     private void Start()
     {
         circle.enabled = false;
+        confirmPanel.SetActive(false);
     }
     private void Update()
     {
+        if (currentQuest == null)
+        {
+            confirmPanel.SetActive(false);
+        }
+
         
         if (currentQuest != selectedQuest)
         {
@@ -41,6 +50,7 @@ public class QuestDetails : MonoBehaviour
             detailsText.text = currentQuest.questDescription;
             expectedEXP.text = currentQuest.expGained.ToString() + " XP";
             expectedTime.text = Mathf.Round(currentQuest.timeToComplete / 10f).ToString() + " days";
+            confirmDays.text = Mathf.Round(currentQuest.timeToComplete / 10f).ToString() + " days";
             advenPay.text = currentQuest.goldGiven.ToString() + " G";
             rank.text = currentQuest.rank.rankLevel;
             string skillsText = FormatSkillsList(currentQuest.skillsUsed);
@@ -87,5 +97,19 @@ public class QuestDetails : MonoBehaviour
         currentQuest = null;
         selectedQuest = null;
         circle.enabled = false;
+    }
+
+    public void OpenPanelConfirm()
+    {
+        if (currentQuest != null)
+        {
+            confirmPanel.SetActive(true);
+        }
+        
+    }
+
+    public void ClosePanelConfirm()
+    {
+        confirmPanel.SetActive(false);
     }
 }

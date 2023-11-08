@@ -8,6 +8,7 @@ public class CharBase : MonoBehaviour
 {
     public AdvenStates advenStates;
     public string charName;
+    public string nickName;
     public CharClass charClass;
     [Space]
     [Range(1, 50)]
@@ -36,7 +37,7 @@ public class CharBase : MonoBehaviour
     [SerializeField] public int questExp;
     [SerializeField] public int questGold;
     public bool questCalculation;
-    public List<ItemDataSO> itemsCollected;
+    public List<(ItemDataSO, Quality)> itemsCollected;
     public InventoryController inventory;
     public GuildFunds guildFunds;
     [Space]
@@ -78,7 +79,7 @@ public class CharBase : MonoBehaviour
 
         timer.OnTurnUpdate += HandleTurnUpdate;
         deBriefButton.gameObject.SetActive(false);
-        itemsCollected = new List<ItemDataSO>();
+        itemsCollected = new List<(ItemDataSO, Quality)>();
         advenStates = AdvenStates.IsAvailable;
         debrief = false;
         UpdateStats();
@@ -296,7 +297,7 @@ public class CharBase : MonoBehaviour
             for (int i = 0; i < itemCount; i++)
             {
                 ItemDataSO item = inventory.items[2];
-                itemsCollected.Add(item);
+                itemsCollected.Add((item, Quality.Great));
             }
         }
     }
@@ -328,7 +329,7 @@ public class CharBase : MonoBehaviour
             for (int i = 0; i < itemCount; i++)
             {
                 ItemDataSO item = inventory.items[0];
-                itemsCollected.Add(item);
+                itemsCollected.Add((item, Quality.Normal));
             }
         }
         if (totalRoll >= 76 && totalRoll <= 85)
@@ -339,7 +340,7 @@ public class CharBase : MonoBehaviour
             for (int i = 0; i < itemCount; i++)
             {
                 ItemDataSO item = inventory.items[0];
-                itemsCollected.Add(item);
+                itemsCollected.Add((item, Quality.Good));
             }
         }
         if (totalRoll >= 86)
@@ -350,7 +351,7 @@ public class CharBase : MonoBehaviour
             for (int i = 0; i < itemCount; i++)
             {
                 ItemDataSO item = inventory.items[0];
-                itemsCollected.Add(item);
+                itemsCollected.Add((item, Quality.Great));
             }
         }
     }
@@ -378,7 +379,7 @@ public class CharBase : MonoBehaviour
             for (int i = 0; i < itemCount; i++)
             {
                 ItemDataSO item = inventory.items[1];
-                itemsCollected.Add(item);
+                itemsCollected.Add((item, Quality.Normal));
             }
         }
         if (totalRoll >= 76 && totalRoll <= 85)
@@ -388,7 +389,7 @@ public class CharBase : MonoBehaviour
             for (int i = 0; i < itemCount; i++)
             {
                 ItemDataSO item = inventory.items[1];
-                itemsCollected.Add(item);
+                itemsCollected.Add((item, Quality.Good));
             }
         }
         if (totalRoll >= 86)
@@ -398,7 +399,7 @@ public class CharBase : MonoBehaviour
             for (int i = 0; i < itemCount; i++)
             {
                 ItemDataSO item = inventory.items[1];
-                itemsCollected.Add(item);
+                itemsCollected.Add((item, Quality.Great));
             }
         }
     }
@@ -483,11 +484,9 @@ public class CharBase : MonoBehaviour
 
     private IEnumerator FillInventory()
     {
-        foreach (ItemDataSO item in itemsCollected)
+        foreach ((ItemDataSO item, Quality quality) in itemsCollected)
         {
-            Debug.Log("char base foreach");
-            inventory.InsertAdventurerItem(item);
-            Debug.Log("adven sends" + item);
+            inventory.InsertAdventurerItem(item, quality);
         }
 
         yield return new WaitForSeconds(0.1f);

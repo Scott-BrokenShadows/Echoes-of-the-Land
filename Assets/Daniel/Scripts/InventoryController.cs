@@ -87,7 +87,7 @@ public class InventoryController : MonoBehaviour
         selectedItem.Rotate();
     }
 
-    public void InsertAdventurerItem(ItemDataSO itemSO)
+    public void InsertAdventurerItem(ItemDataSO itemSO, Quality quality)
     {
         if (selectedItemGrid == null) 
         {
@@ -97,6 +97,7 @@ public class InventoryController : MonoBehaviour
         CreateItem(itemSO);
         InventoryItem itemToInsert = selectedItem;
         selectedItem = null;
+        itemToInsert.quality = quality; // Set the quality of the item
         InsertItem(itemToInsert);
     }
 
@@ -214,7 +215,7 @@ public class InventoryController : MonoBehaviour
         CreateItem(itemSO);
         InventoryItem itemToInsert = selectedItem;
         selectedItem = null;
-        itemToInsert.itemData.quality = quality; // Set the quality of the item
+        itemToInsert.quality = quality; // Set the quality of the item
 
         // Insert the item into the grid
         InsertItem(itemToInsert);

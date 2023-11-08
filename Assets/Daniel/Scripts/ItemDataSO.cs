@@ -28,7 +28,7 @@ public class ItemDataSO : ScriptableObject
 
     public Sprite itemIcon;
     public ItemTypes itemType;
-    public Quality quality;
+    
 
     //add further data here when needed
 }

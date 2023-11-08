@@ -65,7 +65,7 @@ public class RefinePanel : MonoBehaviour
             currentItemImage.sprite = currentItem.itemData.itemIcon;
 
             // Update the quality text in the RefinePanel
-            qualityText.text = currentItem.itemData.quality.ToString();
+            qualityText.text = currentItem.quality.ToString();
         }
         else
         {
