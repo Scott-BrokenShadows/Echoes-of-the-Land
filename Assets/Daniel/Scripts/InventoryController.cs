@@ -117,14 +117,26 @@ public class InventoryController : MonoBehaviour
     private void HandleHighlight()
     {
         Vector2Int positionOnGrid = GetGridPosition();
-        if(oldPosition == positionOnGrid) { return; }
+
+        // Perform bounds checking to ensure the indices are within valid range
+        if (!selectedItemGrid.BoundaryCheck(positionOnGrid.x, positionOnGrid.y, 1, 1))
+        {
+            inventoryHighlight.Show(false);
+            return;
+        }
+
+        if (oldPosition == positionOnGrid)
+        {
+            return;
+        }
+
         oldPosition = positionOnGrid;
 
         if (selectedItem == null)
         {
             itemToHighlight = selectedItemGrid.GetItem(positionOnGrid.x, positionOnGrid.y);
-            
-            if(itemToHighlight != null)
+
+            if (itemToHighlight != null)
             {
                 inventoryHighlight.Show(true);
                 inventoryHighlight.SetSize(itemToHighlight);
@@ -188,12 +200,15 @@ public class InventoryController : MonoBehaviour
 
     private void PickUpItem(Vector2Int tileGridPosition)
     {
-        selectedItem = selectedItemGrid.PickUpItem(tileGridPosition.x, tileGridPosition.y);
-        //rectTransform.SetAsLastSibling();
-
-        if (selectedItem != null)
+        // Perform bounds checking to ensure the indices are within valid range
+        if (selectedItemGrid.BoundaryCheck(tileGridPosition.x, tileGridPosition.y, 1, 1))
         {
-            rectTransform = selectedItem.GetComponent<RectTransform>();
+            selectedItem = selectedItemGrid.PickUpItem(tileGridPosition.x, tileGridPosition.y);
+
+            if (selectedItem != null)
+            {
+                rectTransform = selectedItem.GetComponent<RectTransform>();
+            }
         }
     }
 

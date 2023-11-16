@@ -42,11 +42,25 @@ public class InventoryItem : MonoBehaviour
         this.itemData = itemData;
 
         GetComponent<Image>().sprite = itemData.itemIcon;
+        SetSize(itemData.width, itemData.height);
+    }
 
-        Vector2 size = new Vector2();
-        size.x = itemData.width * ItemGrid.tileSizeWidth;
-        size.y = itemData.height * ItemGrid.tileSizeHeight;
+    internal void SetSize(int width, int height)
+    {
+        CanvasScaler canvasScaler = GetComponentInParent<CanvasScaler>();
+
+        // Get the scale factor from the Canvas Scaler
+        float canvasScaleFactor = canvasScaler.referenceResolution.x / Screen.width;
+
+        // Apply the scale factor to the size calculation
+        Vector2 size = new Vector2(width * ItemGrid.tileSizeWidth * canvasScaleFactor, height * ItemGrid.tileSizeHeight * canvasScaleFactor);
+
+        // Set the size taking the canvas scale factor into account
         GetComponent<RectTransform>().sizeDelta = size;
+
+        // Adjust the image scale
+        Image image = GetComponent<Image>();
+        image.rectTransform.localScale = new Vector3(1 / canvasScaleFactor, 1 / canvasScaleFactor, 1f);
     }
 
     internal void Rotate()

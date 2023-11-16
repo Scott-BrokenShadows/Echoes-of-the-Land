@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class ItemGrid : MonoBehaviour
 {
+    public Canvas rootCanvas;
+
     public const float tileSizeWidth = 64;    //Width of Tile texture
     public const float tileSizeHeight = 64;   //Height of Tile texture
 
-    [SerializeField] int gridSizeWidth = 5;
-    [SerializeField] int gridSizeHeight = 5;
+    public int gridSizeWidth = 5;
+    public int gridSizeHeight = 5;
 
     //[SerializeField] GameObject inventoryItemPrefab;
 
@@ -82,8 +84,8 @@ public class ItemGrid : MonoBehaviour
         positionOnGrid.x = mousePosition.x - rectTransform.position.x;
         positionOnGrid.y = rectTransform.position.y - mousePosition.y;
 
-        tileGridPosition.x = (int)(positionOnGrid.x / tileSizeWidth);
-        tileGridPosition.y = (int)(positionOnGrid.y / tileSizeHeight);
+        tileGridPosition.x = (int)(positionOnGrid.x / (tileSizeWidth * rootCanvas.scaleFactor));
+        tileGridPosition.y = (int)(positionOnGrid.y / (tileSizeHeight * rootCanvas.scaleFactor));
 
         return tileGridPosition;
     }
