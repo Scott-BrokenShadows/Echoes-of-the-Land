@@ -53,13 +53,13 @@ public class EndGame : MonoBehaviour
         }
     }
 
-    private void SetValues()
-    {
-        SetItem1();
-        SetItem2();
-        SetItem3();
-        SetItem4();
-    }
+    //private void SetValues()
+    //{
+    //    SetItem1();
+    //    SetItem2();
+    //    SetItem3();
+    //    SetItem4();
+    //}
 
     private void SetItem1()
     {
@@ -260,7 +260,15 @@ public class EndGame : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(4f);
 
-        SetValues();
+        //SetValues();
+        SetItem1();
+        yield return new WaitForSecondsRealtime(0.75f);
+        SetItem2();
+        yield return new WaitForSecondsRealtime(0.75f);
+        SetItem3();
+        yield return new WaitForSecondsRealtime(0.75f);
+        SetItem4();
+        yield return new WaitForSecondsRealtime(0.75f);
         endGameButton.enabled = true;
     }
 
