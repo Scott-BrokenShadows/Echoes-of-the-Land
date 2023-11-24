@@ -3823,6 +3823,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d473b4407cbd524380d63980550499a, type: 2}
   - {fileID: 11400000, guid: e7f15413a9f93254890e15db6b5ed57f, type: 2}
   - {fileID: 11400000, guid: 1e93c5dd3f378f6479ff632ba6b8abf0, type: 2}
+  - {fileID: 11400000, guid: 30421e51fbd19af4f90bad9e69e90fec, type: 2}
+  - {fileID: 11400000, guid: b4bf91c234ebfd64ea2c9bef7b6c9d49, type: 2}
+  - {fileID: 11400000, guid: 4290c513be9b64945a278f99cd4ab7d7, type: 2}
+  - {fileID: 11400000, guid: 080f2065665446d469a73717def0e26b, type: 2}
   itemPrefab: {fileID: 3374823911377863942, guid: b6b3aa3c5c7fe1c499929fdac23e4fd0, type: 3}
   canvasTransform: {fileID: 173868226}
 --- !u!4 &234758325
