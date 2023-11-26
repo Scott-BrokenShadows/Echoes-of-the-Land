@@ -68,7 +68,10 @@ public class InventoryController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            LeftMouseButtonPress();
+            if (isWorldSpace == false)
+            {
+                LeftMouseButtonPress();
+            }
         }
 
         if (inventoryCanvas.renderMode == RenderMode.WorldSpace && !isWorldSpace)
