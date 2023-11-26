@@ -3829,6 +3829,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 080f2065665446d469a73717def0e26b, type: 2}
   itemPrefab: {fileID: 3374823911377863942, guid: b6b3aa3c5c7fe1c499929fdac23e4fd0, type: 3}
   canvasTransform: {fileID: 173868226}
+  isWorldSpace: 1
+  inventoryCanvas: {fileID: 173868225}
 --- !u!4 &234758325
 Transform:
   m_ObjectHideFlags: 0
@@ -10570,8 +10572,8 @@ MonoBehaviour:
   timerCanvas: {fileID: 1728486677}
   inventoryCanvas: {fileID: 173868225}
   fadeImage: {fileID: 351840044}
-  transitionDuration: 0.5
-  fadeDuration: 0.25
+  transitionDuration: 1
+  fadeDuration: 0.5
   currentCameraIndex: 0
   audiomanager: {fileID: 844862207}
   lastMusicIndex: 0
@@ -10595,7 +10597,7 @@ MonoBehaviour:
   - {fileID: 590722533}
   - {fileID: 42203946}
   - {fileID: 891742763}
-  fadeDuration: 1
+  fadeDuration: 2
   currentMusicIndex: 0
 --- !u!114 &844862208
 MonoBehaviour:

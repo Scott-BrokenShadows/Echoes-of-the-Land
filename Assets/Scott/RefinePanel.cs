@@ -103,6 +103,7 @@ public class RefinePanel : MonoBehaviour
                 // Optionally, update your UI elements to clear the displayed information.
                 currentItemImage.sprite = rclickImage;
                 qualityText.text = "";
+                return;
                 
             }
             if (currentItem.itemData.itemType == ItemTypes.Plant)
@@ -116,7 +117,8 @@ public class RefinePanel : MonoBehaviour
                 // Optionally, update your UI elements to clear the displayed information.
                 currentItemImage.sprite = rclickImage;
                 qualityText.text = "";
-                
+                return;
+
             }
             if (currentItem.itemData.itemType == ItemTypes.Rock)
             {
@@ -129,7 +131,7 @@ public class RefinePanel : MonoBehaviour
                 // Optionally, update your UI elements to clear the displayed information.
                 currentItemImage.sprite = rclickImage;
                 qualityText.text = "";
-                
+                return;
             }
         }
     }

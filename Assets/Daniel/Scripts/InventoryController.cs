@@ -28,6 +28,10 @@ public class InventoryController : MonoBehaviour
 
     Vector2Int oldPosition;
     InventoryHighlight inventoryHighlight;
+    private Vector2Int originalGridPosition; // where the item was picked up from
+
+    public bool isWorldSpace = true;
+    public Canvas inventoryCanvas;
 
     private void Awake()
     {
@@ -48,18 +52,6 @@ public class InventoryController : MonoBehaviour
     {
         ItemIconDrag();
 
-        //if (Input.GetKeyDown(KeyCode.E))
-        //{
-        //    if(selectedItem == null)
-        //    {
-        //        CreateRandomitem();
-        //    }
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.Q))
-        //{
-        //    InsertRandomItem();
-        //}
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -77,6 +69,20 @@ public class InventoryController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             LeftMouseButtonPress();
+        }
+
+        if (inventoryCanvas.renderMode == RenderMode.WorldSpace && !isWorldSpace)
+        {
+            isWorldSpace = true;
+        }
+        else if (inventoryCanvas.renderMode != RenderMode.WorldSpace && isWorldSpace)
+        {
+            isWorldSpace = false;
+        }
+
+        if (isWorldSpace && selectedItem != null)
+        {
+            PlaceItem(originalGridPosition);
         }
     }
 
@@ -208,6 +214,7 @@ public class InventoryController : MonoBehaviour
             if (selectedItem != null)
             {
                 rectTransform = selectedItem.GetComponent<RectTransform>();
+                originalGridPosition = new Vector2Int(tileGridPosition.x, tileGridPosition.y);
             }
         }
     }

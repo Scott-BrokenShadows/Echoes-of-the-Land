@@ -174,7 +174,7 @@ public class ItemGrid : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-                if (inventoryItemSlot[posX + x, posY + y] != null)
+                if (!BoundaryCheck(posX, posY, width, height) || inventoryItemSlot[posX + x, posY + y] != null)
                 {
                     return false;
                 }
