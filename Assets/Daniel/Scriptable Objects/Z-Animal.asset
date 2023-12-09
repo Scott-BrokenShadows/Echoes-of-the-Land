@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c6e5c21916db8e46920609103ab40e1, type: 3}
-  m_Name: A-Eye
+  m_Name: Z-Animal
   m_EditorClassIdentifier: 
-  width: 1
-  height: 1
-  itemIcon: {fileID: 21300000, guid: 25c693ccf83b3b34c9962d0a1f3e737c, type: 3}
-  itemType: 5
+  width: 2
+  height: 3
+  itemIcon: {fileID: 21300000, guid: 31250a52feb1ee442a42f6dfc21aa6f0, type: 3}
+  itemType: 2
   flavourText: 
   baseValue: 0

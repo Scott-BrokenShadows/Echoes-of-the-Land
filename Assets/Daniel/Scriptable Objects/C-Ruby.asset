@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c6e5c21916db8e46920609103ab40e1, type: 3}
-  m_Name: Rock
+  m_Name: C-Ruby
   m_EditorClassIdentifier: 
-  width: 2
-  height: 2
-  itemIcon: {fileID: 21300000, guid: b5e6e6a9462af674bad53644d5c405ef, type: 3}
-  itemType: 1
+  width: 1
+  height: 1
+  itemIcon: {fileID: 21300000, guid: 668896df56b705d49a899c5159353d01, type: 3}
+  itemType: 7
+  flavourText: 
+  baseValue: 0

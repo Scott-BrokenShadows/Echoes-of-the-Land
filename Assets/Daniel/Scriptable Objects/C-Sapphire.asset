@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c6e5c21916db8e46920609103ab40e1, type: 3}
-  m_Name: Animal
+  m_Name: C-Sapphire
   m_EditorClassIdentifier: 
-  width: 2
-  height: 3
-  itemIcon: {fileID: 21300000, guid: c3b8a972d8391d34b9f0498f819c5052, type: 3}
-  itemType: 2
+  width: 1
+  height: 1
+  itemIcon: {fileID: 21300000, guid: 2b999de8f3769b145b45c44a8cb4f732, type: 3}
+  itemType: 9
+  flavourText: 
+  baseValue: 0

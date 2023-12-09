@@ -3819,14 +3819,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3b953b37db82cb244854415641f673ec, type: 2}
   - {fileID: 11400000, guid: 84399913c6454cc499df970e165e3d59, type: 2}
   - {fileID: 11400000, guid: d789cdc7509218f4da69f0781d87394c, type: 2}
-  - {fileID: 11400000, guid: 70de7fc906b9c3f41b7c01128a455d64, type: 2}
-  - {fileID: 11400000, guid: 8d473b4407cbd524380d63980550499a, type: 2}
-  - {fileID: 11400000, guid: e7f15413a9f93254890e15db6b5ed57f, type: 2}
-  - {fileID: 11400000, guid: 1e93c5dd3f378f6479ff632ba6b8abf0, type: 2}
   - {fileID: 11400000, guid: 30421e51fbd19af4f90bad9e69e90fec, type: 2}
   - {fileID: 11400000, guid: b4bf91c234ebfd64ea2c9bef7b6c9d49, type: 2}
   - {fileID: 11400000, guid: 4290c513be9b64945a278f99cd4ab7d7, type: 2}
   - {fileID: 11400000, guid: 080f2065665446d469a73717def0e26b, type: 2}
+  - {fileID: 11400000, guid: 2c300674d8d458745b128e65f0a13fcd, type: 2}
+  - {fileID: 11400000, guid: f118724b1b8baaf4d856c4f5627b6573, type: 2}
+  - {fileID: 11400000, guid: 9807c76a98cff754489ab9015676fefd, type: 2}
+  - {fileID: 11400000, guid: 49fb9c78a340ba24192c8d8dec08c263, type: 2}
+  - {fileID: 11400000, guid: f837b39e7f910224dbf269a5fe8189bf, type: 2}
+  - {fileID: 11400000, guid: 7721615c1d522a944b2e6a35067c5665, type: 2}
+  - {fileID: 11400000, guid: 78e8e08524c5c7f4b89bd008292bdeb2, type: 2}
+  - {fileID: 11400000, guid: 2bff3ff105559ab479caca44215ec66f, type: 2}
   itemPrefab: {fileID: 3374823911377863942, guid: b6b3aa3c5c7fe1c499929fdac23e4fd0, type: 3}
   canvasTransform: {fileID: 173868226}
   isWorldSpace: 1
@@ -12905,7 +12909,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -147, y: -271}
+  m_AnchoredPosition: {x: -147.00002, y: -271}
   m_SizeDelta: {x: -1352.93, y: -613.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &987326458

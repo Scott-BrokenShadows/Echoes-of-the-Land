@@ -7,10 +7,18 @@ public enum ItemTypes
     Plant,
     Rock,
     Animal,
-    Item1,
-    Item2,
-    Item3,
-    Item4
+    Meat,
+    Fur,
+    Eyes,
+    Bones,
+    Ruby,
+    Amethyst,
+    Sapphire,
+    Topaz,
+    Flower,
+    Fruit,
+    Fibre,
+    Leaves
 }
 
 public enum Quality
@@ -28,6 +36,9 @@ public class ItemDataSO : ScriptableObject
 
     public Sprite itemIcon;
     public ItemTypes itemType;
+    [TextArea]
+    public string flavourText;
+    public int baseValue;
     
 
     //add further data here when needed

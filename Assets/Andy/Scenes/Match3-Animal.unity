@@ -326,7 +326,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 25c693ccf83b3b34c9962d0a1f3e737c, type: 3}
   - {fileID: 21300000, guid: bf3a073a866983f428b20f815eb01df4, type: 3}
   - {fileID: 21300000, guid: f14775cad14e12645b9ba8d1d9335d48, type: 3}
-  - {fileID: 5528609633622603068, guid: 2c97df9695607b04c92ec362851a0890, type: 3}
+  - {fileID: 21300000, guid: c54c8ee4c43de8d4e9a402022df910a7, type: 3}
   gameBoard: {fileID: 915326207}
   killedBoard: {fileID: 217139044}
   nodePiece: {fileID: 6697376875136179239, guid: 7c33c6797757deb409a14ee15ffb7808, type: 3}
