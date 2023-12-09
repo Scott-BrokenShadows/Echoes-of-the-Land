@@ -5,10 +5,14 @@ using UnityEngine;
 public class DestroyAndCheckValue : MonoBehaviour
 {
     public TurnChecker turnChecker;
+    public Match3Sounds matchSounds;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         KilledPieces killed = other.GetComponent<KilledPieces>();
+
+        matchSounds.PlaySound(killed.value - 1);
+
         if (killed.value == 1)
         {
             turnChecker.Value1();

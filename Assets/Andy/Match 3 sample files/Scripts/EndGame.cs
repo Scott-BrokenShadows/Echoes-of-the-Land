@@ -19,6 +19,7 @@ public class EndGame : MonoBehaviour
     
 
     public ItemDataSO[] itemData;
+    public Match3Sounds matchSounds;
 
     public GameObject endPanel;
     public int item1Quality;
@@ -29,6 +30,7 @@ public class EndGame : MonoBehaviour
     public TextMeshProUGUI item2Text;
     public TextMeshProUGUI item3Text;
     public TextMeshProUGUI item4Text;
+    private bool gameEnd;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,7 @@ public class EndGame : MonoBehaviour
         endPanel.SetActive(false);
         endGameButton.enabled = false;
         currentScene = SceneManager.GetActiveScene().name;
+        gameEnd = false;
     }
 
     // Update is called once per frame
@@ -49,7 +52,11 @@ public class EndGame : MonoBehaviour
         if (turnChecker.remainingTurns <= 0)
         {
             endPanel.SetActive(true);
-            StartCoroutine(WaitForFalling());
+            if (!gameEnd)
+            {
+                gameEnd = true;
+                StartCoroutine(WaitForFalling());
+            }
         }
     }
 
@@ -258,15 +265,20 @@ public class EndGame : MonoBehaviour
 
     public IEnumerator WaitForFalling()
     {
+        matchSounds.PlaySound(6);
         yield return new WaitForSecondsRealtime(4f);
 
         //SetValues();
+        matchSounds.PlaySound(7);
         SetItem1();
         yield return new WaitForSecondsRealtime(0.75f);
+        matchSounds.PlaySound(7);
         SetItem2();
         yield return new WaitForSecondsRealtime(0.75f);
+        matchSounds.PlaySound(7);
         SetItem3();
         yield return new WaitForSecondsRealtime(0.75f);
+        matchSounds.PlaySound(7);
         SetItem4();
         yield return new WaitForSecondsRealtime(0.75f);
         endGameButton.enabled = true;

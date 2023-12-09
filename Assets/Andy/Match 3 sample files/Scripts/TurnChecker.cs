@@ -16,6 +16,7 @@ public class TurnChecker : MonoBehaviour
     [SerializeField] int check2;
     [SerializeField] int check3;
     [SerializeField] int check4;
+    public Match3Sounds matchSounds;
 
 
 
@@ -81,6 +82,7 @@ public class TurnChecker : MonoBehaviour
 
     public void TurnOver()
     {
+        matchSounds.PlaySound(5);
         remainingTurns--;
     }
 
