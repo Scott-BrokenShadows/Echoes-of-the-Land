@@ -524,7 +524,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 300, y: 840}
+  m_AnchoredPosition: {x: 300, y: 806}
   m_SizeDelta: {x: 128, y: 128}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &17233812
@@ -555,7 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6415094, g: 0.62577426, b: 0.62577426, a: 0.5882353}
+  m_Color: {r: 0.6415094, g: 0.62577426, b: 0.62577426, a: 0.8235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 1, y: 1, z: 1, w: 1}
   m_Maskable: 1
@@ -3789,7 +3789,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TO NEXT :'
+  m_text: 'NEXT AT :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
   m_sharedMaterial: {fileID: 8994598776892180363, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
@@ -7877,7 +7877,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TO NEXT :'
+  m_text: 'NEXT AT :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
   m_sharedMaterial: {fileID: 8994598776892180363, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
@@ -9813,7 +9813,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TO NEXT :'
+  m_text: 'NEXT AT :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
   m_sharedMaterial: {fileID: 8994598776892180363, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
