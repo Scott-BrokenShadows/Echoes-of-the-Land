@@ -49,6 +49,7 @@ public class QuestDetails : MonoBehaviour
             {
                 circle.enabled = false;
             }
+            AudioSFXPlayerMain.Instance.PlayClip(9);
             nameText.text = currentQuest.questName;
             detailsText.text = currentQuest.questDescription;
             expectedEXP.text = currentQuest.expGained.ToString() + " XP";

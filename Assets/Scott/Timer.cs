@@ -40,6 +40,7 @@ public class Timer : MonoBehaviour
     {
         if (turn >= 10)
         {
+            AudioSFXPlayerMain.Instance.PlayClip(4);
             totalDays++;
             dayofWeek++;
             turn = 0;
@@ -48,6 +49,7 @@ public class Timer : MonoBehaviour
 
         if( dayofWeek > 7)
         {
+            AudioSFXPlayerMain.Instance.PlayClip(12);
             dayofWeek = 1;
             weeks++;
             weeksText.text = weeks.ToString();
@@ -55,6 +57,7 @@ public class Timer : MonoBehaviour
 
         if (currentTurn != turn)
         {
+            AudioSFXPlayerMain.Instance.PlayClip(1);
             currentTurn = turn;
             turnImage.sprite = turnSprites[currentTurn];
             OnTurnUpdate?.Invoke();

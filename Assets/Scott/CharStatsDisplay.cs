@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class CharStatsDisplay : MonoBehaviour
 {
@@ -17,9 +18,14 @@ public class CharStatsDisplay : MonoBehaviour
     public TextMeshProUGUI gatherText;
     public TextMeshProUGUI exploreText;
     public TextMeshProUGUI negoText;
+    public TextMeshProUGUI statusText;
+
+    public Image thisImage;
+    public Sprite[] sprites;
 
     private void OnEnable()
     {
+        thisImage.sprite = sprites[Random.Range(0, sprites.Length)];
         levelText.text = charBase.charLevel.ToString();
         currentXPText.text = charBase.currentXP.ToString();
         nextXPText.text = charBase.nextLevelXP.ToString();
@@ -29,6 +35,15 @@ public class CharStatsDisplay : MonoBehaviour
         SetValue(charBase.gatherStat, gatherText);
         SetValue(charBase.exploreStat, exploreText);
         SetValue(charBase.negoStat, negoText);
+
+        if (charBase.advenStates == AdvenStates.IsInjured)
+        {
+            statusText.text = "Injured";
+        }
+        else
+        {
+            statusText.text = "Healthy";
+        }
 
     }
 
