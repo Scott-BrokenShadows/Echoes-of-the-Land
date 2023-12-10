@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2145e0cc1715e0c468672c2109947570, type: 3}
-  m_Name: TestHuntQuest
+  m_Name: HuntCloseD
   m_EditorClassIdentifier: 
-  questName: Hunt Quest
-  questDescription: Being Rank D this takes a little longer, but the rewards are
-    better
+  questName: Hunt the Acker Dackers
+  questDescription: A herd of Acker Dacker's has been roaming the nearby fields,
+    track them down and bring back the spoils.
   evergreen: 1
   rank: {fileID: 11400000, guid: d3422bbe61ca3de45a97aef52aae08c9, type: 2}
   destination: 1
@@ -23,6 +23,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7abc3b312d7861448aa7b4d9ecf1c51c, type: 2}
   - {fileID: 11400000, guid: 7abc3b312d7861448aa7b4d9ecf1c51c, type: 2}
   - {fileID: 11400000, guid: f9dadea867f9d6d4a88abd1efd65df34, type: 2}
-  expGained: 1872
+  expGained: 3744
   goldGiven: 133
   timeToComplete: 26

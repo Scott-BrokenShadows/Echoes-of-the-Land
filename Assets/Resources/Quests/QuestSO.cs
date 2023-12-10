@@ -52,7 +52,7 @@ public class QuestSO :ScriptableObject
 
         if (rank != null)
         {
-            expGained = Mathf.RoundToInt(rank.baseExp * totalExpMultiplier * totalTimeMultiplier * (destinationValue * 0.5f));
+            expGained = Mathf.RoundToInt(rank.baseExp * totalExpMultiplier * totalTimeMultiplier * (destinationValue * 1.0f));
         }
         else
         {

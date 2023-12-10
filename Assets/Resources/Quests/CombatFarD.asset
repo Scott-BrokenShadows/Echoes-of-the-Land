@@ -10,21 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2145e0cc1715e0c468672c2109947570, type: 3}
-  m_Name: TestCombatQuest
+  m_Name: CombatFarD
   m_EditorClassIdentifier: 
-  questName: Defeat the Drop Bears
-  questDescription: This quest is higher ranked and further away, so it takes longer
-    to complete, but the rewards are worth it.
+  questName: Call for Aid
+  questDescription: Another town has requested help with monsters, please go and
+    assist them with their issues.
   evergreen: 1
-  rank: {fileID: 11400000, guid: 89e5df48d19f3684eabdbfd9a4a7747a, type: 2}
-  destination: 2
+  rank: {fileID: 11400000, guid: d3422bbe61ca3de45a97aef52aae08c9, type: 2}
+  destination: 3
   skillsUsed:
   - {fileID: 11400000, guid: f9dadea867f9d6d4a88abd1efd65df34, type: 2}
-  - {fileID: 11400000, guid: 7abc3b312d7861448aa7b4d9ecf1c51c, type: 2}
   - {fileID: 11400000, guid: 9bef0bb027ccf9a479da33914b77b96c, type: 2}
   - {fileID: 11400000, guid: 9bef0bb027ccf9a479da33914b77b96c, type: 2}
-  - {fileID: 11400000, guid: 269b9fd56d4ca6645bc7e2333e4a8366, type: 2}
   - {fileID: 11400000, guid: f9dadea867f9d6d4a88abd1efd65df34, type: 2}
-  expGained: 15312
-  goldGiven: 870
-  timeToComplete: 104
+  expGained: 9936
+  goldGiven: 308
+  timeToComplete: 54
