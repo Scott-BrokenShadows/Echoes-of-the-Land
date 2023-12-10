@@ -21,6 +21,9 @@ public class QuestDetails : MonoBehaviour
     public GameObject confirmPanel;
     public TextMeshProUGUI confirmDays;
 
+    public delegate void QuestChanged();
+    public event QuestChanged QuestDetailsChanged;
+
 
     private void Start()
     {
@@ -55,6 +58,7 @@ public class QuestDetails : MonoBehaviour
             rank.text = currentQuest.rank.rankLevel;
             string skillsText = FormatSkillsList(currentQuest.skillsUsed);
             skillList.text = "Skill rolls to make : " + skillsText;
+            QuestDetailsChanged?.Invoke();
         }
     }
 

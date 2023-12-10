@@ -25,6 +25,7 @@ public class QuestSO :ScriptableObject
     public int expGained;
     public int goldGiven;
     public int timeToComplete;
+    public CharClass requiredClass;
 
     private void CalculateEXP()
     {

@@ -150,6 +150,12 @@ public class CharBase : MonoBehaviour
 
     private void IsInjured()
     {
+        if (charButton.gameObject.active == false)
+        {
+            charButton.gameObject.SetActive(true);
+        }
+
+
         if (currentHealth > 0)
         {
             charButton.GetComponent<Image>().sprite = isAvailableImage;

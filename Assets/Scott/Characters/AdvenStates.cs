@@ -12,6 +12,7 @@ public enum AdvenStates
 
 public enum CharClass
 {
+    None,
     Combat,
     Explorer,
     Gatherer
