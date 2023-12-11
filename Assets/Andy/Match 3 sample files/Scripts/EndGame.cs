@@ -49,6 +49,11 @@ public class EndGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (cameras.newCameraIndex == 0)
+        {
+            swapper.LoadUnloadScene(currentScene);
+        }
+
         if (turnChecker.remainingTurns <= 0)
         {
             endPanel.SetActive(true);

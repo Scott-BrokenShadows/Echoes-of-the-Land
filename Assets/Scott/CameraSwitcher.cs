@@ -14,6 +14,7 @@ public class CameraSwitcher : MonoBehaviour
     public float transitionDuration = 1.0f; // Duration of the camera transition.
     public float fadeDuration = 0.5f; // Duration of the fade-in/fade-out effect.
 
+    public int newCameraIndex = 0;
     public int currentCameraIndex = 0; // Index of the currently active camera.
     private int currentCanvasIndex = 0; //Index of the currently active canvas.
     private int lastCameraIndex = 0; //Index for changing when exiting menu
@@ -48,6 +49,7 @@ public class CameraSwitcher : MonoBehaviour
     {
         if (cameraIndex >= 0 && cameraIndex < cameras.Length && cameraIndex != currentCameraIndex)
         {
+            newCameraIndex = cameraIndex;
             StartCoroutine(TransitionWithLoading(cameraIndex));
         }
     }
@@ -59,7 +61,6 @@ public class CameraSwitcher : MonoBehaviour
             if (currentCameraIndex != 0)
             {
                 SwitchToPrevious();
-                
             }
         }
     }
@@ -68,6 +69,7 @@ public class CameraSwitcher : MonoBehaviour
     {
         if (currentCameraIndex != 5)
         {
+            newCameraIndex = 5;
             lastCameraIndex = currentCameraIndex;
             lastMusicIndex = audiomanager.currentMusicIndex;
             audiomanager.CrossfadeMusic(menuMusicIndex);
@@ -78,6 +80,7 @@ public class CameraSwitcher : MonoBehaviour
         }
         if (currentCameraIndex == 5)
         {
+            newCameraIndex = lastCameraIndex;
             canvases[currentCanvasIndex].sortingOrder = 0;
             canvases[lastCameraIndex].sortingOrder = 10;
             audiomanager.CrossfadeMusic(lastMusicIndex);
