@@ -58,6 +58,9 @@ public class CharBase : MonoBehaviour
     [Range(0, 2)]
     public float baseNegoStat;
 
+    public delegate void QuestFinishedEvent(string questName);
+    public event QuestFinishedEvent OnQuestFinished;
+
 
     // Start is called before the first frame update
     void Start()
@@ -172,10 +175,7 @@ public class CharBase : MonoBehaviour
             
         }
 
-        if (currentQuest != null)
-        {
-            currentQuest = null;
-        }
+        
     }
 
     private void IsAvailable()
@@ -466,6 +466,7 @@ public class CharBase : MonoBehaviour
 
     public void FinishQuest()
     {
+        OnQuestFinished?.Invoke(currentQuest.name);
         guildFunds.SpendGold(questGold);
         currentXP = currentXP + questExp;
         debrief = true;
@@ -484,8 +485,11 @@ public class CharBase : MonoBehaviour
             charButton.GetComponent<Image>().sprite = isAvailableImage;
         }
 
-        
-        
+        if (currentQuest != null)
+        {
+            currentQuest = null;
+        }
+
     }
 
     private IEnumerator FillInventory()

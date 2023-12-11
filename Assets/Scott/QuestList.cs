@@ -18,10 +18,10 @@ public class QuestList : MonoBehaviour
                 evergreenQuestList.Add(quest);
             }
             //remove this bit later, don't forget
-            else
-            {
-                mainQuests.Add(quest);
-            }
+            //else
+            //{
+            //    mainQuests.Add(quest);
+            //}
         }
     }
 
