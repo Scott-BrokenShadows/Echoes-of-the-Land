@@ -13,7 +13,7 @@ public class GuildFunds : MonoBehaviour
     {
         //set to high number for initial alpha testing
         guildFundsValue = 100000;
-        guildFundText.text = guildFundsValue.ToString() + " gold";
+        guildFundText.text = guildFundsValue.ToString();
     }
 
     // Update is called once per frame
@@ -25,12 +25,12 @@ public class GuildFunds : MonoBehaviour
     public void SpendGold(int amount)
     {
         guildFundsValue = guildFundsValue - amount;
-        guildFundText.text = guildFundsValue.ToString() + " gold";
+        guildFundText.text = guildFundsValue.ToString();
     }
 
     public void GainGold(int amount)
     {
         guildFundsValue = guildFundsValue + amount;
-        guildFundText.text = guildFundsValue.ToString() + " gold";
+        guildFundText.text = guildFundsValue.ToString();
     }
 }

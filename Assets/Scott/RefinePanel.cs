@@ -66,6 +66,8 @@ public class RefinePanel : MonoBehaviour
 
             // Update the quality text in the RefinePanel
             qualityText.text = currentItem.quality.ToString();
+
+            
         }
         else
         {
