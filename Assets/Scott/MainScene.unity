@@ -10283,9 +10283,11 @@ MonoBehaviour:
   fibreMod: 0
   leafMod: 0
   trust: 0
-  guildFunds: {fileID: 0}
-  merchantButton: {fileID: 0}
-  isHere: 0
+  timer: {fileID: 1656943831}
+  turnCountHere: 0
+  turnCountNotHere: 0
+  merchantButton: {fileID: 1689638365}
+  isHere: 1
 --- !u!4 &826143168
 Transform:
   m_ObjectHideFlags: 0
@@ -10299,7 +10301,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &844862204
 GameObject:
@@ -12699,7 +12701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -147, y: -271}
+  m_AnchoredPosition: {x: -147.00002, y: -271}
   m_SizeDelta: {x: -1352.93, y: -613.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &987326458
@@ -21511,9 +21513,11 @@ MonoBehaviour:
   fibreMod: 0
   leafMod: 0
   trust: 0
-  guildFunds: {fileID: 0}
-  merchantButton: {fileID: 0}
-  isHere: 0
+  timer: {fileID: 1656943831}
+  turnCountHere: 0
+  turnCountNotHere: 0
+  merchantButton: {fileID: 560719465}
+  isHere: 1
 --- !u!4 &1689958752
 Transform:
   m_ObjectHideFlags: 0
@@ -21527,7 +21531,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1696582805
 GameObject:
