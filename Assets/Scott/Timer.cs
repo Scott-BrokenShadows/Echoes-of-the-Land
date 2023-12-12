@@ -63,7 +63,7 @@ public class Timer : MonoBehaviour
             OnTurnUpdate?.Invoke();
         }
 
-        if(weeks == 4)
+        if(weeks == 13)
         {
             SceneManager.LoadScene("Credits");
         }

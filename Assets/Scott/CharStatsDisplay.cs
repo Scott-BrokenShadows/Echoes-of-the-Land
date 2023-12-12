@@ -40,6 +40,14 @@ public class CharStatsDisplay : MonoBehaviour
         {
             statusText.text = "Injured";
         }
+        else if (charBase.currentHealth <= (charBase.healthStat * 0.33f))
+        {
+            statusText.text = "Hurting";
+        }
+        else if (charBase.currentHealth <= (charBase.healthStat * 0.66f))
+        {
+            statusText.text = "Poorly";
+        }
         else
         {
             statusText.text = "Healthy";
