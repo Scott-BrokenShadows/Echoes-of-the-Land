@@ -8,6 +8,11 @@ public class merchantBase : MonoBehaviour
     public string merchantName;
     public string merchantNickname;
 
+    //merchant specific item modifiers for gold value
+    public float plantMod;
+    public float rockMod;
+    public float animalMod;
+
     public float meatMod;
     public float furMod;
     public float eyeMod;
@@ -52,7 +57,7 @@ public class merchantBase : MonoBehaviour
             turnCount = turnCountNotHere;
             isHere = false;
         }
-        else if (turnCount <= 0 && !isHere) //ifn the merchant is not here and the counter is 0, then the merchant is here and turncount for their stay is added
+        else if (turnCount <= 0 && !isHere) //if the merchant is not here and the counter is 0, then the merchant is here and turncount for their stay is added
         {
             turnCount = turnCountHere;
             isHere = true;
