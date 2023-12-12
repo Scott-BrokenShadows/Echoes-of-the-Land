@@ -14,6 +14,7 @@ public class RefinePanel : MonoBehaviour
     public TextMeshProUGUI qualityText;
     public InventoryController inventory;
     public SceneSwapper swapper;
+
     
     public Audiomanager audiomanager;
 
@@ -144,4 +145,6 @@ public class RefinePanel : MonoBehaviour
 
         swapper.LoadUnloadScene(sceneToLoad);
     }
+
+
 }

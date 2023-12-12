@@ -12,7 +12,7 @@ public class GuildFunds : MonoBehaviour
     void Start()
     {
         //set to high number for initial alpha testing
-        guildFundsValue = 1000;
+        guildFundsValue = 10000;
         guildFundText.text = guildFundsValue.ToString();
     }
 

@@ -2101,7 +2101,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- DIFFERENT VERSIONS OF ITEMS
 
-    - EXPANDED QUESTS
+    - STORY AND FURTHER VN ELEMENTS
+
+    -
+    SELLING TO MERCHANTS
 
 '
   m_isRightToLeft: 0
@@ -2130,8 +2133,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

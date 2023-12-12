@@ -5,19 +5,20 @@ using UnityEngine;
 public class StoryChecker : MonoBehaviour
 {
     [Header("Main Story")]
-    public bool tutorial;
+    public bool tutorial = false;
+    public bool tutorialCompleted = false;
 
     [Space]
     [Header("Daniel Story")]
-    public bool dStroy1;
+    public bool dStroy1 = false;
 
     [Space]
     [Header("Ludwig Story")]
-    public bool lStory1;
+    public bool lStory1 = false;
 
     [Space]
     [Header("Sidney Story")]
-    public bool sStory1;
+    public bool sStory1 = false;
 
     [Space]
     [Header("Questing")]
@@ -33,6 +34,9 @@ public class StoryChecker : MonoBehaviour
     public CharBase danBase;
     public CharBase ludBase;
     public CharBase sidBase;
+
+    [Space]
+    public GameObject[] tutePanels;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +57,11 @@ public class StoryChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (tutorial && !tutorialCompleted)
+        {
+            DeletePanels();
+            tutorialCompleted = true;
+        }
     }
 
     public void AddQuest(string questName)
@@ -83,5 +91,13 @@ public class StoryChecker : MonoBehaviour
     {
         totalQuests++;
         sidQuests++;
+    }
+
+    void DeletePanels()
+    {
+        foreach (GameObject panel in tutePanels)
+        {
+            Destroy(panel);
+        }
     }
 }
