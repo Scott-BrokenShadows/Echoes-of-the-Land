@@ -11,13 +11,13 @@ public class sellScript : MonoBehaviour
     public Sprite rclickImage;              //image for when no item is selected
     public TextMeshProUGUI qualityText;     //text to show the quality of the selected item
 
-    public InventoryController inventory;   
+    public InventoryController inventory;   //for getting the selected item's tile coordinates
     public InventoryItem currentItem;       //the currently selected item
 
     public GuildFunds guildFunds;           //for when we want to add gold to the guild funds
     public int goldValue;                   //total gold value of selected item
     public int qualValue;                   //gold value of selected item's base value multiplied with quality seen below
-    public int goldText;                    //text to show gold value of selected item
+    public TextMeshProUGUI goldText;        //text to show gold value of selected item
     private merchantBase merchant;          //merchant selected for gold calculations
     public merchantBase[] merchantArray;    //array of merchants to select from based on specific buttons
 
@@ -31,6 +31,7 @@ public class sellScript : MonoBehaviour
         currentItem = null;    
         currentItemImage.sprite = rclickImage;
         qualityText.text = "";
+        goldText.text = "";
     }
 
     // Update is called once per frame
@@ -66,6 +67,7 @@ public class sellScript : MonoBehaviour
             CalculateGold();
 
             //display calculated gold
+            goldText.text = goldValue + "g";
         }
         else
         {
@@ -73,6 +75,7 @@ public class sellScript : MonoBehaviour
             currentItem = null;
             currentItemImage.sprite = rclickImage;
             qualityText.text = "";
+            goldText.text = "";
         }
     }
 
@@ -85,6 +88,7 @@ public class sellScript : MonoBehaviour
             currentItem = null;
             currentItemImage.sprite = rclickImage;
             qualityText.text = "";
+            goldText.text = "";
         }
     }
 
@@ -97,6 +101,7 @@ public class sellScript : MonoBehaviour
             currentItem = null;
             currentItemImage.sprite = rclickImage;
             qualityText.text = "";
+            goldText.text = "";
         }
     }
 
