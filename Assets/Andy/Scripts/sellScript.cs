@@ -14,10 +14,15 @@ public class sellScript : MonoBehaviour
     public InventoryController inventory;
     public InventoryItem currentItem;
 
+    public GuildFunds guildFunds;
+    public int goldValue;
+    public GameObject merchant;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentItemImage.sprite = rclickImage;
+        currentItem = null;
     }
 
     // Update is called once per frame
@@ -31,8 +36,10 @@ public class sellScript : MonoBehaviour
 
     private void RightMouseButtonPress()
     {
+        //getting tile coordinates of selected item
         Vector2Int tileGridPosition = inventory.GetGridPosition();
 
+        //getting the selected item from inventory grid
         InventoryItem selectedInventoryItem = inventory.selectedItemGrid.GetItem(tileGridPosition.x, tileGridPosition.y);
             
         if (selectedInventoryItem != null)
@@ -46,13 +53,44 @@ public class sellScript : MonoBehaviour
             //updates the text to show the item's quality
             qualityText.text = currentItem.quality.ToString();
 
-            //do gold funds transfer here
+
+            //Mathf.RoundToInt(goldValue);
+            //guildFunds.GainGold(goldValue);
         }
         else
         {
+            //if no item is selected, clear the panel
             currentItem = null;
             currentItemImage.sprite = rclickImage;
             qualityText.text = "";
         }
     }
+
+    public void Trash()
+    {
+        if (currentItem != null)
+        {
+            Destroy(currentItem.gameObject);
+            currentItem = null;
+            currentItemImage.sprite = rclickImage;
+            qualityText.text = "";
+        }
+    }
+
+    public void CalculateGold()
+    {
+        switch (currentItem.quality)
+        {
+            case Quality.Normal:
+            goldValue = Mathf.RoundToInt(currentItem.itemData.baseValue);
+            break;
+            case Quality.Good:
+            goldValue = Mathf.RoundToInt(currentItem.itemData.baseValue * 1.5f);
+            break;
+            case Quality.Great:
+            goldValue = Mathf.RoundToInt(currentItem.itemData.baseValue * 2f);
+            break;
+        }
+    }
+
 }

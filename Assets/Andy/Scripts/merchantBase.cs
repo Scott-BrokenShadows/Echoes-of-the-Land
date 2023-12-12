@@ -28,12 +28,12 @@ public class merchantBase : MonoBehaviour
     public int turnCountNotHere;
     private int turnCount;
 
-    //public GuildFunds guildFunds;
+    //public GuildFunds guildFunds; this is for sell script
     public Button merchantButton;
 
     public bool isHere;
 
-    //public InventoryController inventory;
+    //public InventoryController inventory; this is for sell script
 
     // Start is called before the first frame update
     void Start()
