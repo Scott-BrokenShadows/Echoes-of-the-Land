@@ -9,7 +9,9 @@ public class sellScript : MonoBehaviour
 {
     public Image currentItemImage;          //image of the currently selected item
     public Sprite rclickImage;              //image for when no item is selected
+    
     public TextMeshProUGUI qualityText;     //text to show the quality of the selected item
+    public TextMeshProUGUI goldText;        //text to show gold value of selected item
 
     public InventoryController inventory;   //for getting the selected item's tile coordinates
     public InventoryItem currentItem;       //the currently selected item
@@ -17,12 +19,17 @@ public class sellScript : MonoBehaviour
     public GuildFunds guildFunds;           //for when we want to add gold to the guild funds
     public int goldValue;                   //total gold value of selected item
     public int qualValue;                   //gold value of selected item's base value multiplied with quality seen below
-    public TextMeshProUGUI goldText;        //text to show gold value of selected item
+
     private merchantBase merchant;          //merchant selected for gold calculations
     public merchantBase[] merchantArray;    //array of merchants to select from based on specific buttons
 
     public float goodQuality = 1.5f;        //multiplier for good quality items
     public float greatQuality = 2f;         //multiplier for great quality items
+
+    public GameObject sellPanel;            //this is for turning the sell panel on or off depending if the sell menu is opened
+    public Canvas inventoryCanvas;          //to show or not show the inventory grid by changing rendermode
+
+    public bool sellMenuStatus = true;    //false for when sell menu is closed and true for open
 
     // Start is called before the first frame update
     void Start()
@@ -109,6 +116,28 @@ public class sellScript : MonoBehaviour
     {
         //currently only 2 merchants. 0 is Alchemist and 1 is Fur merchant
         merchant = merchantArray[merch];
+    }
+
+    public void sellMenuState()
+    {
+        //checks if the sell menu was opened or closed and enables or disables sell menu UI
+        //sell menu is open if true and closed if false
+        if (sellMenuStatus)
+        {
+            //sellPanel.gameObject.SetActive(true);
+            inventoryCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            
+            //changes sellmenustatus so that the next time this function is called, we use the else statement instead
+            sellMenuStatus = false;
+        }
+        else
+        {
+            //sellPanel.gameObject.SetActive(false);
+            inventoryCanvas.renderMode = RenderMode.WorldSpace;
+            
+            //changes sellmenustatus so that the next time this function is called, we use the if statement instead
+            sellMenuStatus = true;
+        }
     }
 
     public void CalculateGold()
