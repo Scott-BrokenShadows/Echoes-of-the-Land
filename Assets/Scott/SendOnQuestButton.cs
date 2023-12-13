@@ -9,6 +9,7 @@ public class SendOnQuestButton : MonoBehaviour
     public CharBase selectedCharacter;
     public DropDownAvailableChars dropDownAvailableChars;
     public Timer timer;
+    public QuestList questList;
     // Start is called before the first frame update
 
 
@@ -19,6 +20,10 @@ public class SendOnQuestButton : MonoBehaviour
         {
             if (questDetails.currentQuest != null)
             {
+                if (questDetails.currentQuest.evergreen != true)
+                {
+                    questList.mainQuests.Remove(questDetails.currentQuest);
+                }
                 selectedCharacter.currentQuest = questDetails.currentQuest;
                 gameManager.QuestBoard();
                 timer.AdvanceTime();

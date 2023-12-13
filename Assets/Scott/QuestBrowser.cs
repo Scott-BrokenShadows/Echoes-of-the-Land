@@ -16,17 +16,10 @@ public class QuestBrowser : MonoBehaviour
     
     public QuestList questList;
 
+    
     private void OnEnable()
     {
-        CharBase[] charBases = FindObjectsOfType<CharBase>();
-
-        foreach (CharBase charBase in charBases)
-        {
-            if (charBase.advenStates == AdvenStates.IsAvailable)
-            {
-                characters.Add(charBase);
-            }
-        }
+        questDetails.QuestDetailsChanged += OnQuestDetailsChanged;
 
         foreach (Transform child in buttonParentEvergreen.transform)
         {
@@ -66,5 +59,30 @@ public class QuestBrowser : MonoBehaviour
     {
         questDetails.selectedQuest = quest;
         
+    }
+
+    void OnQuestDetailsChanged()
+    {
+        characters.Clear();
+
+        CharBase[] charBases = FindObjectsOfType<CharBase>();
+
+        foreach (CharBase charBase in charBases)
+        {
+            if (charBase.advenStates == AdvenStates.IsAvailable)
+            {
+                if (questDetails.currentQuest.requiredClass == CharClass.None)
+                {
+                    characters.Add(charBase);
+                }
+                else if (charBase.charClass == questDetails.currentQuest.requiredClass)
+                {
+                    characters.Add(charBase);
+                }
+                    
+            }
+        }
+
+        dropDown.PopulateDropdown();
     }
 }

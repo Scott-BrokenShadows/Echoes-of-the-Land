@@ -14,6 +14,7 @@ public class RefinePanel : MonoBehaviour
     public TextMeshProUGUI qualityText;
     public InventoryController inventory;
     public SceneSwapper swapper;
+
     
     public Audiomanager audiomanager;
 
@@ -66,6 +67,8 @@ public class RefinePanel : MonoBehaviour
 
             // Update the quality text in the RefinePanel
             qualityText.text = currentItem.quality.ToString();
+
+            
         }
         else
         {
@@ -142,4 +145,6 @@ public class RefinePanel : MonoBehaviour
 
         swapper.LoadUnloadScene(sceneToLoad);
     }
+
+
 }

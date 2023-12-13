@@ -21,6 +21,9 @@ public class QuestDetails : MonoBehaviour
     public GameObject confirmPanel;
     public TextMeshProUGUI confirmDays;
 
+    public delegate void QuestChanged();
+    public event QuestChanged QuestDetailsChanged;
+
 
     private void Start()
     {
@@ -46,6 +49,7 @@ public class QuestDetails : MonoBehaviour
             {
                 circle.enabled = false;
             }
+            AudioSFXPlayerMain.Instance.PlayClip(9);
             nameText.text = currentQuest.questName;
             detailsText.text = currentQuest.questDescription;
             expectedEXP.text = currentQuest.expGained.ToString() + " XP";
@@ -55,6 +59,7 @@ public class QuestDetails : MonoBehaviour
             rank.text = currentQuest.rank.rankLevel;
             string skillsText = FormatSkillsList(currentQuest.skillsUsed);
             skillList.text = "Skill rolls to make : " + skillsText;
+            QuestDetailsChanged?.Invoke();
         }
     }
 

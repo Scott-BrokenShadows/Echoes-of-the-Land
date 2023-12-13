@@ -21,6 +21,9 @@ public class QuestEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("rank"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("destination"));
 
+        // Add the line to display the requiredClass property
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("requiredClass"));
+
         // Get the totalSkills value from the RankSO
         int totalSkills = 0;
         if (questSO.rank != null)
