@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 50481966}
   - component: {fileID: 50481965}
+  - component: {fileID: 50481967}
   m_Layer: 0
   m_Name: BoolChecker
   m_TagString: Untagged
@@ -172,6 +173,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &50481967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50481964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c410105e74419ae45b4aa7086f54b48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasObjectDialogue: {fileID: 887489326}
+  canvasObjectStage: {fileID: 2146589484}
+  canvasObjectMenu: {fileID: 1892620927}
+  canvasObjectBlur: {fileID: 738067871}
+  boolChecker: {fileID: 50481965}
+  cameraSwitcher: {fileID: 0}
 --- !u!1 &98136995
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,7 +961,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354898641}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1965,9 +1984,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 800315993}
+  - {fileID: 800315959}
   selectedCommands:
-  - {fileID: 800315994}
+  - {fileID: 800315975}
   variables:
   - {fileID: 800315963}
   - {fileID: 800315962}
@@ -3604,9 +3623,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43b85556abd314f3f870c18c013fdcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickMode: 1
+  clickMode: 2
   nextClickDelay: 0
-  cancelEnabled: 1
+  cancelEnabled: 0
   ignoreMenuClicks: 1
 --- !u!114 &887489320
 MonoBehaviour:
@@ -4997,7 +5016,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125933329}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
