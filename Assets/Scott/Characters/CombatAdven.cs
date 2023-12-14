@@ -7,7 +7,8 @@ public class CombatAdven : MonoBehaviour
     public float trust;
     public CharBase charBase;
     public Timer timer;
-    private bool skillsChecked;
+    private bool skillsCheckedD;
+    private bool skillsCheckedS;
 
     void Start()
     {
@@ -64,19 +65,28 @@ public class CombatAdven : MonoBehaviour
                 GatherCalc();
                 break;
         }
+
+        if (trust > 100)
+        {
+            trust = 100;
+        }
+        if (trust < 0)
+        {
+            trust = 0;
+        }
     }
 
     void CombatCalc()
     {
         if (charBase.advenStates != AdvenStates.IsOnQuest)
         {
-            skillsChecked = false;
+            skillsCheckedD = false;
         }
         
 
-        if (!skillsChecked && charBase.advenStates == AdvenStates.IsOnQuest)
+        if (!skillsCheckedD && charBase.advenStates == AdvenStates.IsOnQuest)
         {
-            skillsChecked = true;
+            skillsCheckedD = true;
             if (charBase.currentQuest.rank != null)
             {
                 foreach (SkillsSO skill in charBase.currentQuest.skillsUsed)
@@ -108,11 +118,19 @@ public class CombatAdven : MonoBehaviour
 
     void GatherCalc()
     {
-        if (charBase.advenStates == AdvenStates.IsAvailable)
+        if (charBase.advenStates != AdvenStates.IsOnQuest)
         {
-            trust += 0.1f;
+            skillsCheckedS = false;
         }
-        else if (charBase.advenStates == AdvenStates.IsInjured)
+
+
+        if (!skillsCheckedD && charBase.advenStates == AdvenStates.IsOnQuest)
+        {
+            skillsCheckedS = true;
+            trust += 10;
+        }
+
+        if (charBase.advenStates == AdvenStates.IsInjured)
         {
             trust -= 5f;
         }

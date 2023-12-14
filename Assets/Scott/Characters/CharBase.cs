@@ -28,8 +28,6 @@ public class CharBase : MonoBehaviour
     public int gatherStat;
     [Range(1, 100)]
     public int negoStat;
-    [Range(1, 100)]
-    public int trust;
     [Space]
     public Timer timer;
     public QuestSO currentQuest;
@@ -466,7 +464,7 @@ public class CharBase : MonoBehaviour
 
     public void FinishQuest()
     {
-        OnQuestFinished?.Invoke(currentQuest.name);
+        OnQuestFinished?.Invoke(currentQuest.questName);
         guildFunds.SpendGold(questGold);
         currentXP = currentXP + questExp;
         debrief = true;

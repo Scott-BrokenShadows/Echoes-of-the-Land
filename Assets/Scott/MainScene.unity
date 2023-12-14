@@ -4917,7 +4917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -817.19995, y: -61.9198}
+  m_AnchoredPosition: {x: -817.1999, y: -61.9198}
   m_SizeDelta: {x: -1634.4, y: -123.83002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &254729556
@@ -14669,6 +14669,8 @@ MonoBehaviour:
   - Match3-Plant
   - Match3-Rock
   - Fungus-Old
+  - Fungus-Middle
+  - Fungus-Young
 --- !u!1 &849929295
 GameObject:
   m_ObjectHideFlags: 0
@@ -15182,7 +15184,6 @@ MonoBehaviour:
   huntStat: 0
   gatherStat: 0
   negoStat: 0
-  trust: 0
   timer: {fileID: 1656943831}
   currentQuest: {fileID: 0}
   questTime: 0
@@ -17489,7 +17490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -147.00002, y: -271}
+  m_AnchoredPosition: {x: -147, y: -271}
   m_SizeDelta: {x: -1352.93, y: -613.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &987326458
@@ -24141,7 +24142,6 @@ MonoBehaviour:
   huntStat: 0
   gatherStat: 0
   negoStat: 0
-  trust: 0
   timer: {fileID: 1656943831}
   currentQuest: {fileID: 0}
   questTime: 0
@@ -25111,7 +25111,6 @@ MonoBehaviour:
   huntStat: 0
   gatherStat: 0
   negoStat: 0
-  trust: 0
   timer: {fileID: 1656943831}
   currentQuest: {fileID: 0}
   questTime: 0
@@ -28321,7 +28320,7 @@ MonoBehaviour:
   selectedCharacter: {fileID: 0}
   dropDownAvailableChars: {fileID: 0}
   timer: {fileID: 1656943831}
-  questList: {fileID: 0}
+  questList: {fileID: 2048116947}
 --- !u!114 &1674370024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35370,9 +35369,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorial: 0
   tutorialCompleted: 0
-  dStroy1: 0
+  mQStarted: 0
+  mQ1SO: 0
+  mQ1SM: 0
+  mQ1SY: 0
+  mQ1C: 0
+  mQ2SO: 0
+  mQ2SM: 0
+  mQ2SY: 0
+  mQ2C: 0
+  dStory1: 0
+  dStory1C: 0
   lStory1: 0
+  lStory1C: 0
   sStory1: 0
+  sStory1C: 0
   totalQuests: 0
   danQuests: 0
   ludQuests: 0
@@ -35382,6 +35393,9 @@ MonoBehaviour:
   danBase: {fileID: 866116054}
   ludBase: {fileID: 1448909152}
   sidBase: {fileID: 1397651488}
+  danTrust: {fileID: 866116053}
+  ludTrust: {fileID: 1448909151}
+  sidTrust: {fileID: 1397651487}
   tutePanels:
   - {fileID: 1824223885}
   - {fileID: 254729554}

@@ -10,19 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2145e0cc1715e0c468672c2109947570, type: 3}
-  m_Name: Ludwig's Quest
+  m_Name: PQ-Lud1
   m_EditorClassIdentifier: 
-  questName: Exploration!
-  questDescription: Only Ludwig should appear in the list for this quest.
+  questName: Ludwig Quest 1
+  questDescription: Louisa 'needs' Ludwig to go and find a specific alchemical ingredient
+    for her. It must be Ludwig and only Ludwig.
   evergreen: 0
-  rank: {fileID: 11400000, guid: d3422bbe61ca3de45a97aef52aae08c9, type: 2}
-  destination: 2
+  rank: {fileID: 11400000, guid: e490a35226a52ac4482bf95e79b0c076, type: 2}
+  destination: 3
   skillsUsed:
+  - {fileID: 11400000, guid: f9dadea867f9d6d4a88abd1efd65df34, type: 2}
+  - {fileID: 11400000, guid: f9dadea867f9d6d4a88abd1efd65df34, type: 2}
   - {fileID: 11400000, guid: 48c902232026ba34199328a518a5be7e, type: 2}
   - {fileID: 11400000, guid: f9dadea867f9d6d4a88abd1efd65df34, type: 2}
-  - {fileID: 11400000, guid: 269b9fd56d4ca6645bc7e2333e4a8366, type: 2}
-  - {fileID: 11400000, guid: 9bef0bb027ccf9a479da33914b77b96c, type: 2}
-  expGained: 4524
-  goldGiven: 157
-  timeToComplete: 29
+  - {fileID: 11400000, guid: f9dadea867f9d6d4a88abd1efd65df34, type: 2}
+  expGained: 15390
+  goldGiven: 364
+  timeToComplete: 68
   requiredClass: 2

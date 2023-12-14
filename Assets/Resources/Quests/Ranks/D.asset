@@ -16,5 +16,5 @@ MonoBehaviour:
   totalSkills: 4
   baseExp: 200
   baseGold: 15
-  baseTime: 5
+  baseTime: 4
   diffcultyModifier: 1.22
