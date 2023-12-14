@@ -144,6 +144,16 @@ public class sellScript : MonoBehaviour
         }
     }
 
+    //this is for the close button of sell menu
+    //clear selected item from sell panel so that it doesn't show on other merchants sell menu
+    public void onSellMenuExit()
+    {
+        currentItem = null;
+        currentItemImage.sprite = rclickImage;
+        qualityText.text = "";
+        goldText.text = "";
+    }
+
     public void CalculateGold()
     {
         //multiplying the base value of the item with the quality modifier
