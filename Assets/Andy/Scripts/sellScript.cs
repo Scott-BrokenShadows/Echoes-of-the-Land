@@ -28,8 +28,9 @@ public class sellScript : MonoBehaviour
 
     public GameObject sellPanel;            //this is for turning the sell panel on or off depending if the sell menu is opened
     public Canvas inventoryCanvas;          //to show or not show the inventory grid by changing rendermode
+    public GameObject sellExitButton;       //clicking this button will close the sell menu
 
-    public bool sellMenuStatus = true;    //false for when sell menu is closed and true for open
+    private bool sellMenuStatus = true;      //false for when sell menu is closed and true for open
 
     // Start is called before the first frame update
     void Start()
@@ -124,16 +125,20 @@ public class sellScript : MonoBehaviour
         //sell menu is open if true and closed if false
         if (sellMenuStatus)
         {
-            //sellPanel.gameObject.SetActive(true);
+            sellPanel.gameObject.SetActive(true);
+            sellExitButton.gameObject.SetActive(true);
             inventoryCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            inventoryCanvas.sortingOrder = 10;
             
             //changes sellmenustatus so that the next time this function is called, we use the else statement instead
             sellMenuStatus = false;
         }
         else
         {
-            //sellPanel.gameObject.SetActive(false);
+            sellPanel.gameObject.SetActive(false);
+            sellExitButton.gameObject.SetActive(false);
             inventoryCanvas.renderMode = RenderMode.WorldSpace;
+            inventoryCanvas.sortingOrder = 0;
             
             //changes sellmenustatus so that the next time this function is called, we use the if statement instead
             sellMenuStatus = true;
