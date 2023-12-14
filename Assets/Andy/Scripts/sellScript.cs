@@ -28,7 +28,6 @@ public class sellScript : MonoBehaviour
 
     public GameObject sellPanel;            //this is for turning the sell panel on or off depending if the sell menu is opened
     public Canvas inventoryCanvas;          //to show or not show the inventory grid by changing rendermode
-    public GameObject sellExitButton;       //clicking this button will close the sell menu
 
     private bool sellMenuStatus = true;      //false for when sell menu is closed and true for open
 
@@ -92,6 +91,7 @@ public class sellScript : MonoBehaviour
         //adds gold value to guild funds and deletes item
         if (currentItem != null)
         {
+            Destroy(currentItem.gameObject);
             guildFunds.GainGold(goldValue);
             currentItem = null;
             currentItemImage.sprite = rclickImage;
@@ -119,6 +119,7 @@ public class sellScript : MonoBehaviour
         merchant = merchantArray[merch];
     }
 
+    //calling this function will close or open the menu
     public void sellMenuState()
     {
         //checks if the sell menu was opened or closed and enables or disables sell menu UI
@@ -126,7 +127,6 @@ public class sellScript : MonoBehaviour
         if (sellMenuStatus)
         {
             sellPanel.gameObject.SetActive(true);
-            sellExitButton.gameObject.SetActive(true);
             inventoryCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
             inventoryCanvas.sortingOrder = 10;
             
@@ -136,7 +136,6 @@ public class sellScript : MonoBehaviour
         else
         {
             sellPanel.gameObject.SetActive(false);
-            sellExitButton.gameObject.SetActive(false);
             inventoryCanvas.renderMode = RenderMode.WorldSpace;
             inventoryCanvas.sortingOrder = 0;
             
