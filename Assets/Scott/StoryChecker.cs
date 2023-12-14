@@ -122,6 +122,9 @@ public class StoryChecker : MonoBehaviour
             case "MQ1-Suspicious Activity":
                 mQ1SO = true;
                 break;
+            case "MQ2-Trial by Combat":
+                mQ2SO = true;
+                break;
 
         }
     }
@@ -136,6 +139,9 @@ public class StoryChecker : MonoBehaviour
             case "MQ1-Suspicious Activity":
                 mQ1SM = true;
                 break;
+            case "MQ2-Following Tracks":
+                mQ2SM = true;
+                break;
         }
     }
 
@@ -148,6 +154,9 @@ public class StoryChecker : MonoBehaviour
         {
             case "MQ1-Suspicious Activity":
                 mQ1SY = true;
+                break;
+            case "MQ2-Peace Offering":
+                mQ2SY = true;
                 break;
         }
     }
