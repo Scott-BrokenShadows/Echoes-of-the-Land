@@ -2919,6 +2919,145 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148459066}
   m_CullTransparentMesh: 1
+--- !u!1 &149825034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 149825035}
+  - component: {fileID: 149825037}
+  - component: {fileID: 149825036}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &149825035
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149825034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 539282337}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 207.8392, y: 100.9548}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &149825036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149825034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'MERCHANT
+
+    IN BAR
+
+'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
+  m_sharedMaterial: {fileID: 8994598776892180363, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4290242047
+  m_fontColor: {r: 1, g: 0.8980393, b: 0.7176471, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: -3
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &149825037
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149825034}
+  m_CullTransparentMesh: 1
 --- !u!1 &154560523
 GameObject:
   m_ObjectHideFlags: 0
@@ -9988,6 +10127,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531216168}
   m_CullTransparentMesh: 1
+--- !u!1 &539282336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 539282337}
+  - component: {fileID: 539282339}
+  - component: {fileID: 539282338}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &539282337
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539282336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 149825035}
+  m_Father: {fileID: 1728486678}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 145.3833, y: -84.940186}
+  m_SizeDelta: {x: 247.4365, y: 122.2104}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &539282338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539282336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.83137256, g: 0.627451, b: 0.49019608, a: 0.9411765}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ca47d67128393f24e8ab86e0281b93c9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &539282339
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539282336}
+  m_CullTransparentMesh: 1
 --- !u!1 &541691002
 GameObject:
   m_ObjectHideFlags: 0
@@ -15028,8 +15244,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 794.91, y: 421.04}
-  m_SizeDelta: {x: 106.02, y: 119.2}
+  m_AnchoredPosition: {x: 810, y: 438}
+  m_SizeDelta: {x: 75.84, y: 85.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &791487145
 GameObject:
@@ -27495,8 +27711,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: DANIEL DEBRIEF
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
+  m_sharedMaterial: {fileID: 8994598776892180363, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -31274,26 +31490,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   merchantName: Fur Merchant
-  merchantNickname: 
+  merchantNickname: Daisy
   plantMod: 0.5
-  rockMod: 1.1
-  animalMod: 1.4
-  meatMod: 1.8
-  furMod: 2
-  eyeMod: 1.3
-  boneMod: 2
-  rubyMod: 1.5
-  amethystMod: 2.5
-  sapphireMod: 1.5
-  topazMod: 2.5
+  rockMod: 1.4
+  animalMod: 1.2
+  meatMod: 2.1
+  furMod: 1.6
+  eyeMod: 0.9
+  boneMod: 0.8
+  rubyMod: 1
+  amethystMod: 1
+  sapphireMod: 1
+  topazMod: 1
   flowerMod: 0.6
-  fruitMod: 0.8
+  fruitMod: 1.2
   fibreMod: 0.8
   leafMod: 0.5
   trust: 0
   timer: {fileID: 1656943831}
-  turnCountHere: 4
-  turnCountNotHere: 6
+  turnCountHere: 10
+  turnCountNotHere: 60
   merchantButton: {fileID: 560719465}
   isHere: 1
 --- !u!4 &1689958752
@@ -31417,26 +31633,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   merchantName: Alchemist
-  merchantNickname: 
+  merchantNickname: Louisa
   plantMod: 1.2
-  rockMod: 1.1
+  rockMod: 0.6
   animalMod: 0.8
   meatMod: 0.7
   furMod: 0.5
-  eyeMod: 1
-  boneMod: 0.8
-  rubyMod: 2
-  amethystMod: 1
-  sapphireMod: 2
-  topazMod: 1
+  eyeMod: 1.6
+  boneMod: 1.3
+  rubyMod: 0.4
+  amethystMod: 0.4
+  sapphireMod: 0.4
+  topazMod: 0.4
   flowerMod: 1.6
-  fruitMod: 1.4
-  fibreMod: 1.1
-  leafMod: 1.2
+  fruitMod: 1
+  fibreMod: 1.2
+  leafMod: 1.3
   trust: 0
   timer: {fileID: 1656943831}
-  turnCountHere: 7
-  turnCountNotHere: 3
+  turnCountHere: 10
+  turnCountNotHere: 30
   merchantButton: {fileID: 1689638365}
   isHere: 1
 --- !u!4 &1702903033
@@ -31871,6 +32087,7 @@ GameObject:
   - component: {fileID: 1728486677}
   - component: {fileID: 1728486676}
   - component: {fileID: 1728486675}
+  - component: {fileID: 1728486679}
   m_Layer: 5
   m_Name: TimerOverlay
   m_TagString: Untagged
@@ -31957,6 +32174,7 @@ RectTransform:
   - {fileID: 947852954}
   - {fileID: 724948054}
   - {fileID: 1907144957}
+  - {fileID: 539282337}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31965,6 +32183,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1728486679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728486674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01667435c28e3394183f99a2983daecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 539282336}
+  furMerch: {fileID: 560719465}
+  alchMerch: {fileID: 1689638365}
+  panelOn: 0
 --- !u!1 &1730032036
 GameObject:
   m_ObjectHideFlags: 0
@@ -33676,8 +33910,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: LUDWIG DEBRIEF
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
+  m_sharedMaterial: {fileID: 8994598776892180363, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -39555,8 +39789,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SIDNEY DEBRIEF
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
+  m_sharedMaterial: {fileID: 8994598776892180363, guid: cadf92c511a588a4fb78dc025f8c661c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

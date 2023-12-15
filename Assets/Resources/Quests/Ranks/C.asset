@@ -15,6 +15,6 @@ MonoBehaviour:
   rankLevel: C
   totalSkills: 5
   baseExp: 300
-  baseGold: 20
+  baseGold: 30
   baseTime: 5
   diffcultyModifier: 1

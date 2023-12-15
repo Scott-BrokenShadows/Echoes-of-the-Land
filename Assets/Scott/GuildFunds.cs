@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GuildFunds : MonoBehaviour
 {
@@ -12,14 +13,17 @@ public class GuildFunds : MonoBehaviour
     void Start()
     {
         //set to high number for initial alpha testing
-        guildFundsValue = 10000;
+        guildFundsValue = 1500;
         guildFundText.text = guildFundsValue.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (guildFundsValue <= -200)
+        {
+            SceneManager.LoadScene("Credits");
+        }
     }
 
     public void SpendGold(int amount)

@@ -15,6 +15,6 @@ MonoBehaviour:
   rankLevel: S
   totalSkills: 8
   baseExp: 600
-  baseGold: 35
+  baseGold: 60
   baseTime: 8
   diffcultyModifier: 0.52

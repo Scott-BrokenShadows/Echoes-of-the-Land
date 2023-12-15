@@ -17,4 +17,4 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 25c693ccf83b3b34c9962d0a1f3e737c, type: 3}
   itemType: 5
   flavourText: 
-  baseValue: 10
+  baseValue: 15
